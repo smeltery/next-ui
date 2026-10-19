@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<title>Next UI — Small details. Better interfaces.</title>
+<rect width="1200" height="630" fill="#f7f7f2"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#292b25">
+<rect x="62" y="48" width="40" height="40" rx="11" fill="#526447"/><path d="M72 77V59h5l10 14V59h5v18h-5L77 63v14Z" fill="#f7f7f2"/>
+<text x="117" y="78" font-size="27" font-weight="600" letter-spacing="-1">smeltery <tspan fill="#696d63" font-weight="400">/ next-ui</tspan></text>
+<text x="1138" y="76" text-anchor="end" font-size="14" fill="#696d63">A little interaction. A lot more character.</text>
+<text x="62" y="225" font-size="69" letter-spacing="-3" font-weight="600">Small details.</text>
+<g font-family="Georgia,serif" font-style="italic" font-size="76" letter-spacing="-3" fill="#526447"><text x="60" y="309">Better</text><text x="60" y="390">interfaces.</text></g>
+<text x="64" y="443" font-size="20" fill="#696d63">Thoughtful React components. Yours to shape.</text>
+<rect x="64" y="472" width="282" height="43" rx="22" fill="#292b25"/><text x="205" y="499" text-anchor="middle" fill="white" font-size="14">React · TypeScript · Tailwind CSS</text>
+<g transform="translate(617 165)"><rect width="521" height="350" rx="20" fill="#eceee5" stroke="#d9dfce"/>
+<g fill="#b6bfaa"><circle cx="24" cy="25" r="4"/><circle cx="38" cy="25" r="4"/><circle cx="52" cy="25" r="4"/></g><text x="261" y="29" text-anchor="middle" font-size="10" fill="#696d63">the little things / next-ui</text>
+<rect x="18" y="48" width="235" height="250" rx="12" fill="#282f25"/><text x="36" y="74" font-size="9" fill="#b8c8a7">01 / LIGHT</text>
+<defs><radialGradient id="orb" cx="35%" cy="25%"><stop stop-color="#e0e9c9"/><stop offset=".55" stop-color="#95aa76"/><stop offset="1" stop-color="#34412b"/></radialGradient></defs>
+<circle cx="136" cy="159" r="58" fill="url(#orb)"/><text x="36" y="251" font-size="19" fill="#fafbf7">Find your spotlight.</text><text x="36" y="274" font-size="11" fill="#b6bdb0">A subtle glow. A little focus.</text>
+<rect x="265" y="48" width="238" height="119" rx="12" fill="#fafbf6"/><text x="283" y="74" font-size="9" fill="#849079">02 / DETAIL</text><rect x="286" y="92" width="196" height="49" rx="8" fill="white" stroke="#8fa875"/><text x="384" y="122" text-anchor="middle" font-size="12">Made to stand out.</text>
+<rect x="265" y="179" width="238" height="119" rx="12" fill="#fafbf6"/><text x="283" y="204" font-size="9" fill="#849079">03 / MOTION</text><g fill="#c7d5b6" stroke="#b4c69e"><rect x="337" y="220" width="24" height="24" rx="4"/><rect x="368" y="220" width="24" height="24" rx="4"/><rect x="399" y="220" width="24" height="24" rx="4"/><rect x="337" y="251" width="24" height="24" rx="4"/><rect x="368" y="251" width="24" height="24" rx="4" fill="#687f53"/><rect x="399" y="251" width="24" height="24" rx="4"/></g>
+<text x="22" y="328" font-size="10" fill="#696d63">&lt;/&gt;  Good details. No black boxes.</text><text x="499" y="328" text-anchor="end" font-size="10" fill="#526447">● Live in your code</text></g>
+<path d="M64 553h1074" stroke="#e1e3d9"/><circle cx="69" cy="585" r="4" fill="#82906d"/><text x="83" y="590" font-size="14" fill="#696d63">Preview. Copy. Make it yours.</text><text x="1138" y="590" text-anchor="end" font-size="14" fill="#696d63">smeltery/next-ui</text>
+</g></svg>

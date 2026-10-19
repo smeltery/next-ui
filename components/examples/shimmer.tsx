@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ExampleProps } from "@/types/type"
+import type { ExampleProps } from "@/types/type"
 
 export const Shimmer = ({ children, className }: ExampleProps) => {
   return (

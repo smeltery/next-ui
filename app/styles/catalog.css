@@ -1,0 +1,343 @@
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 38px;
+}
+.catalog-filters > .eyebrow {
+  margin: 12px 0 20px;
+}
+.catalog-filters button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 10px;
+  background: none;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+.catalog-filters button span {
+  margin-left: auto;
+  font-size: 10px;
+}
+.catalog-filters button[aria-pressed="true"] {
+  background: #e7ebde;
+  color: #445639;
+}
+.catalog-filters button:hover {
+  background: var(--sage);
+}
+.catalog-help {
+  border-top: 1px solid var(--line);
+  margin-top: 25px;
+  padding-top: 25px;
+  font-size: 11px;
+}
+.catalog-help strong {
+  display: block;
+  margin: 12px 0 8px;
+  font-size: 12px;
+}
+.catalog-help a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.catalog-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: var(--muted);
+}
+.catalog-search input {
+  background: none;
+  border: 0;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+}
+.result-count {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0;
+  font-size: 10px;
+}
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.component-card {
+  min-width: 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  overflow: hidden;
+}
+.component-demo {
+  position: relative;
+  isolation: isolate;
+  height: 225px;
+  background: #10120f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 28px;
+  color: #fafafa;
+}
+.component-demo > div {
+  max-width: 100%;
+}
+.component-description {
+  display: block;
+  padding: 21px 22px;
+}
+.component-number {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 9px;
+  color: var(--muted);
+}
+.component-description h3 {
+  font-size: 18px;
+  font-weight: 550;
+  margin: 10px 0 7px;
+}
+.component-description p {
+  font-size: 12px;
+  min-height: 40px;
+}
+.view-component {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--accent);
+}
+.empty-state {
+  padding: 50px 20px;
+  text-align: center;
+}
+.empty-state p {
+  margin: 15px;
+}
+.getting-started-band {
+  background: var(--sage);
+  border-top: 1px solid var(--line);
+  padding-block: 65px;
+}
+.getting-started-band > .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+.getting-started-band h2 {
+  margin: 20px 0 28px;
+}
+.getting-started-band ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.getting-started-band li {
+  display: flex;
+  gap: 22px;
+  padding: 24px 0;
+  border-bottom: 1px solid #d6dccb;
+}
+.getting-started-band li > span {
+  font: 11px var(--mono);
+  color: var(--accent);
+  padding-top: 4px;
+}
+.getting-started-band h3 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.getting-started-band p {
+  font-size: 12px;
+  margin-top: 8px;
+}
+.component-page {
+  max-width: 1000px;
+  padding-block: 55px 80px;
+}
+.component-page h1 {
+  font-size: 46px;
+  margin: 20px 0;
+}
+.component-page .component-demo {
+  height: 300px;
+  border-radius: 16px;
+  margin-block: 32px;
+}
+.component-page pre {
+  background: #10120f !important;
+  padding: 20px !important;
+  border-radius: 10px;
+}
+.component-page .source-panel {
+  background: #10120f;
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.component-page .back-link {
+  font-size: 12px;
+  color: var(--accent);
+}
+@media (max-width: 1100px) {
+  .home-hero {
+    gap: 35px;
+  }
+  .home-hero h1 {
+    font-size: 54px;
+  }
+  .catalog-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+  }
+  .component-demo {
+    padding: 18px;
+  }
+  .value-strip {
+    flex-wrap: wrap;
+  }
+  .value-strip > span {
+    width: 100%;
+  }
+}
+@media (max-width: 780px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding-block: 48px;
+    gap: 42px;
+  }
+  .home-hero h1 {
+    font-size: 48px;
+  }
+  .home-hero .lead {
+    font-size: 14px;
+  }
+  .hero-meta {
+    gap: 10px;
+    font-size: 9px;
+  }
+  .hero-meta span + span:before {
+    margin-right: 10px;
+  }
+  .hero-actions {
+    gap: 20px;
+  }
+  .hero-actions .button {
+    font-size: 12px;
+    padding-inline: 18px;
+  }
+  .hero-preview {
+    transform: none;
+  }
+  .desktop-break {
+    display: none;
+  }
+  .value-strip {
+    justify-content: flex-start;
+    gap: 20px 24px;
+  }
+  .value-strip > div {
+    font-size: 12px;
+  }
+  .library-section {
+    padding-block: 52px;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 25px;
+  }
+  .section-heading h2 {
+    font-size: 36px;
+  }
+  .section-heading > p {
+    margin-top: 20px;
+  }
+  .catalog-layout {
+    display: block;
+  }
+  .catalog-filters > .eyebrow,
+  .catalog-help {
+    display: none;
+  }
+  .catalog-filters > div:first-of-type {
+    display: flex;
+    overflow: auto;
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+  .catalog-filters button {
+    white-space: nowrap;
+    width: auto;
+    flex-shrink: 0;
+    padding: 12px;
+  }
+  .catalog-filters button span {
+    display: none;
+  }
+  .component-grid {
+    gap: 16px;
+  }
+  .component-demo {
+    height: 190px;
+    padding: 20px;
+  }
+  .component-description {
+    padding: 18px;
+  }
+  .component-description h3 {
+    font-size: 17px;
+  }
+  .component-description p {
+    min-height: 55px;
+  }
+  .getting-started-band > .wrap {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .preview-live {
+    font-size: 8px;
+  }
+  .component-page h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 520px) {
+  .component-grid {
+    grid-template-columns: 1fr;
+  }
+  .component-demo {
+    height: 230px;
+  }
+  .component-description p {
+    min-height: 0;
+  }
+  .result-count span {
+    display: none;
+  }
+}
+
+.component-page [role="tab"] {
+  color: #526447;
+}
+.component-page [role="tab"][aria-selected="true"] {
+  color: #292b25;
+}

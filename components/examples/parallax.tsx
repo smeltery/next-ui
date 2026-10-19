@@ -3,14 +3,14 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { ExampleProps } from "@/types/type"
+import type { ExampleProps } from "@/types/type"
 
-function throttle<T extends (...args: any[]) => any>(
-  func: T,
+function throttle<T extends unknown[]>(
+  func: (...args: T) => void,
   delay: number
-): (...args: Parameters<T>) => void {
+): (...args: T) => void {
   let lastCall = 0
-  return (...args: Parameters<T>) => {
+  return (...args: T) => {
     const now = new Date().getTime()
     if (now - lastCall < delay) {
       return
@@ -23,11 +23,11 @@ function throttle<T extends (...args: any[]) => any>(
 export const Parallax = ({ className, children }: ExampleProps) => {
   const [rotate, setRotate] = React.useState({ x: 0, y: 0 })
 
-  //using usecallback here to mitigate eslint warning
-  //usecallback(fn, deps) is equivalent to usememo(() => fn, deps).
   const onMouseMove = React.useMemo(
     () =>
       throttle((e: React.MouseEvent<HTMLDivElement>) => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return
         const card = e.currentTarget
         const box = card.getBoundingClientRect()
         const x = e.clientX - box.left

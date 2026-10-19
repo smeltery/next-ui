@@ -1,95 +1,97 @@
-import {promises as fs} from "fs"
-import path from "path"
-import {COMPONENTS_LIST} from "@/data/component-list"
-
+import { readFile } from "node:fs/promises"
+import path from "node:path"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { COMPONENTS_LIST } from "@/data/component-list"
 import CodeBlock from "@/components/code-block"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
-import {MotionWrapper} from "@/components/motion-wrapper"
-
+import { CopyButton } from "@/components/copy-button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 interface Props {
-	params: { slug: string }
+  params: { slug: string }
 }
-
-export async function generateStaticParams() {
-	return COMPONENTS_LIST.map((component) => ({
-		slug: component.slug,
-	}))
+export function generateStaticParams() {
+  return COMPONENTS_LIST.map(({ slug }) => ({ slug }))
 }
-
-export default async function ComponentPage({params}: Props) {
-	const {slug} = params
-
-	const currentComponent = COMPONENTS_LIST.find(
-		(component) => component.slug === slug
-	)
-
-	if (!currentComponent) return <div>Can&apos;t find component</div>
-
-	const twConfig = JSON.stringify(currentComponent?.twConfig, null, 2)
-
-	const compFilePath = `./components/examples/${currentComponent?.slug}.tsx`
-	const demoFilePath = `./components/demos/${currentComponent?.slug}-demo.tsx`
-
-	const comp = await fs.readFile(path.join(process.cwd(), compFilePath), "utf8")
-	const demo = await fs.readFile(path.join(process.cwd(), demoFilePath), "utf8")
-
-	return (
-		<MotionWrapper
-			containerVariants={{
-				hidden: {opacity: 0},
-				visible: {
-					opacity: 1,
-					transition: {
-						staggerChildren: 0.1,
-						delayChildren: 0.3,
-					},
-				},
-			}}
-			itemVariants={{
-				hidden: {opacity: 0, y: 20},
-				visible: {
-					opacity: 1,
-					y: 0,
-					transition: {duration: 0.5, ease: "easeOut"},
-				},
-			}}
-		>
-			<h1 className="mb-2 text-2xl font-bold text-gray-400">
-				{currentComponent.name}
-			</h1>
-			<div
-				className="relative my-12 overflow-hidden rounded-xl border bg-[radial-gradient(#ffffff12_1px,transparent_1px)] bg-[size:16px_16px] p-12 py-10"
-			>
-				<div className="flex h-40 w-full items-center justify-center">
-					<currentComponent.component/>
-				</div>
-			</div>
-			<Tabs defaultValue="code">
-				<TabsList className="grid w-full grid-cols-2">
-					<TabsTrigger value="code">Code</TabsTrigger>
-					<TabsTrigger value="usage">Usage</TabsTrigger>
-				</TabsList>
-				<TabsContent value="code">
-					<CodeBlock code={comp} lang="tsx"/>
-					{Boolean(twConfig) && (
-						<div className="my-10">
-							<div className="mb-2">
-                <span className="text-xl text-gray-400">
-                  tailwind.config.js
+export function generateMetadata({ params }: Props) {
+  const component = COMPONENTS_LIST.find((item) => item.slug === params.slug)
+  return {
+    title: component?.name ?? "Component not found",
+    description: component?.description
+  }
+}
+export default async function ComponentPage({ params }: Props) {
+  const item = COMPONENTS_LIST.find(
+    (component) => component.slug === params.slug
+  )
+  if (!item) notFound()
+  const [source, usage] = await Promise.all([
+    readFile(
+      path.join(process.cwd(), "components/examples", `${item.slug}.tsx`),
+      "utf8"
+    ),
+    readFile(
+      path.join(process.cwd(), "components/demos", `${item.slug}-demo.tsx`),
+      "utf8"
+    )
+  ])
+  return (
+    <div className="wrap component-page">
+      <Link href="/#library" className="back-link">
+        ← All components
+      </Link>
+      <h1>{item.name}</h1>
+      <p className="lead">{item.description}</p>
+      <div className="component-demo dark">
+        <item.component />
+      </div>
+      <Tabs defaultValue="component">
+        <TabsList>
+          <TabsTrigger value="component">Component</TabsTrigger>
+          <TabsTrigger value="usage">Usage</TabsTrigger>
+        </TabsList>
+        {[
+          ["component", source],
+          ["usage", usage]
+        ].map(([value, code]) => (
+          <TabsContent key={value} value={value}>
+            <div className="source-panel">
+              <div className="flex items-center justify-between px-4 pb-3">
+                <span className="text-xs">
+                  {value === "component"
+                    ? `${item.slug}.tsx`
+                    : `${item.slug}-demo.tsx`}
                 </span>
-							</div>
-							<CodeBlock
-								code={twConfig}
-								lang="tsx"
-								fileName="tailwind.config.js"
-							/>
-						</div>
-					)}
-				</TabsContent>
-				<TabsContent value="usage">
-					<CodeBlock code={demo} lang="tsx"/>
-				</TabsContent>
-			</Tabs>
-		</MotionWrapper>
-	)
+                <CopyButton copyToClipboard={code} />
+              </div>
+              <CodeBlock code={code} lang="tsx" />
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+      {item.twConfig && (
+        <section className="mt-10">
+          <h2 className="text-2xl">Tailwind configuration</h2>
+          <p className="mt-4">
+            Merge these theme extensions into your existing configuration.
+          </p>
+          <div className="source-panel">
+            <CopyButton
+              copyToClipboard={JSON.stringify(item.twConfig, null, 2)}
+            />
+            <CodeBlock
+              code={JSON.stringify(item.twConfig, null, 2)}
+              lang="json"
+            />
+          </div>
+        </section>
+      )}
+      <p className="mt-8 text-sm">
+        New here?{" "}
+        <Link className="underline" href="/docs/quick-start">
+          Read the quick start
+        </Link>{" "}
+        for dependencies and setup.
+      </p>
+    </div>
+  )
 }

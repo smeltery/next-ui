@@ -1,0 +1,189 @@
+.docs-header {
+  display: block;
+  height: auto;
+  padding: 0 32px;
+  background: var(--paper);
+}
+.docs-header-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.docs-header .brand {
+  font-size: 20px;
+}
+.docs-header .desktop-nav {
+  margin-left: auto;
+}
+.docs-header .github-link {
+  background: none;
+  color: var(--ink);
+  border: 0;
+  padding: 0;
+}
+.docs-header .header-search-trigger {
+  order: 3;
+}
+.docs-header .menu-toggle {
+  order: 4;
+}
+.doc-article-heading > .eyebrow {
+  margin-bottom: 42px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+.doc-article-heading h1 {
+  margin-top: 0;
+}
+.docs-toc {
+  position: sticky;
+  top: 76px;
+  height: calc(100dvh - 76px);
+  overflow: auto;
+  padding: 56px 24px 24px 8px;
+}
+.docs-toc > .eyebrow {
+  font-size: 9px;
+  color: #686f60;
+  letter-spacing: 0.12em;
+}
+.docs-toc nav {
+  display: grid;
+  gap: 20px;
+  padding-top: 25px;
+}
+.docs-toc nav a {
+  font-size: 11px;
+  color: #636e58;
+  line-height: 1.4;
+}
+.doc-content h2 {
+  padding-top: 38px;
+  margin: 35px 0 20px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+.doc-content > h2:first-child {
+  border: 0;
+}
+.doc-content h3 {
+  margin: 24px 0 14px;
+}
+.doc-content p {
+  margin: 18px 0;
+}
+.doc-content a {
+  color: #465d36;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.doc-content ul,
+.doc-content ol {
+  padding-left: 22px;
+  list-style: revert;
+}
+.doc-content li {
+  margin: 8px 0;
+}
+.doc-content pre {
+  padding: 22px;
+  background: #eef1e8;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  margin: 24px 0;
+  font: 12px/1.8 var(--mono);
+}
+.doc-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  display: block;
+  overflow: auto;
+}
+.doc-content th,
+.doc-content td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.doc-content th {
+  font-weight: 600;
+}
+.doc-diagram {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fcfdf9;
+  overflow: auto;
+  padding: 24px;
+  margin: 24px 0;
+}
+.doc-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+.doc-next {
+  margin-top: 45px;
+}
+.doc-actions {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 20px;
+}
+.doc-actions > a,
+.doc-actions > button,
+.doc-actions summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #626e58;
+  min-height: 44px;
+  width: 100%;
+  background: none;
+  text-align: left;
+}
+.doc-actions summary {
+  cursor: pointer;
+}
+.doc-actions p {
+  font-size: 11px;
+}
+.chat-links {
+  display: grid;
+  padding: 10px 12px;
+  gap: 14px;
+  font-size: 12px;
+}
+@media (max-width: 780px) {
+  .docs-header {
+    padding: 0 16px;
+  }
+  .docs-header-inner {
+    height: 66px;
+    gap: 12px;
+  }
+  .docs-header .brand {
+    font-size: 16px;
+  }
+  .docs-header .github-link {
+    display: none;
+  }
+  .docs-header-label {
+    display: none;
+  }
+  .docs-header .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 780px) {
+  .docs-header .desktop-nav {
+    display: none;
+  }
+}

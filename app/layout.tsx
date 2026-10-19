@@ -1,45 +1,63 @@
-import React from "react";
-
 import type { Metadata } from "next"
-
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-	src: "./fonts/GeistVF.woff",
-	variable: "--font-geist-sans",
-	weight: "100 900",
-});
-const geistMono = localFont({
-	src: "./fonts/GeistMonoVF.woff",
-	variable: "--font-geist-mono",
-	weight: "100 900",
-});
-
-import "./globals.css"
-
+import localFont from "next/font/local"
 import { Navbar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import { cn } from "@/lib/utils"
-
+import "@fontsource-variable/dm-sans"
+import "./globals.css"
+const sans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900"
+})
 export const metadata: Metadata = {
-  title: "Next UI",
-  description: "A collection of UI beautifully crafted components"
+  title: {
+    default: "Next UI — Small details. Better interfaces.",
+    template: "%s · Next UI"
+  },
+  description:
+    "Nine copy-paste React components. Explore live previews, take the TypeScript source, and make every interaction your own.",
+  metadataBase: new URL(
+    process.env.SITE_URL || "https://next-ui-orcin-chi.vercel.app"
+  ),
+  openGraph: {
+    title: "Next UI — Small details. Better interfaces.",
+    images: [
+      {
+        url: process.env.SITE_URL
+          ? "/brand/og.png"
+          : "https://raw.githubusercontent.com/smeltery/next-ui/master/public/brand/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Next UI: small details, better interfaces. React, TypeScript, Tailwind CSS."
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      process.env.SITE_URL
+        ? "/brand/og.png"
+        : "https://raw.githubusercontent.com/smeltery/next-ui/master/public/brand/og.png"
+    ]
+  },
+  robots: process.env.SITE_URL
+    ? { index: true, follow: true }
+    : { index: false, follow: false }
 }
-
-export default function RootLayout(props: {
+export default function RootLayout({
+  children
+}: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body
-        className={cn("bg-background", geistMono.className, geistSans.className, "dark")}
-        suppressHydrationWarning
-      >
-        <div className="px-4 mx-auto flex min-h-screen max-w-7xl flex-col">
-          <Navbar />
-          <main className="flex-1">{props.children}</main>
-         <Footer />
-        </div>
+      <body id="top" className={sans.variable}>
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   )

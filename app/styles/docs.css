@@ -1,0 +1,332 @@
+.docs-header {
+  height: 76px;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #f6f6f3f5;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.docs-header .brand {
+  font-size: 23px;
+}
+.docs-header-label {
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.docs-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+}
+.docs-layout {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr) 240px;
+}
+.docs-sidebar {
+  padding: 36px 22px;
+  border-right: 1px solid var(--line);
+  position: sticky;
+  top: 76px;
+  height: calc(100dvh - 76px);
+  overflow: auto;
+}
+.docs-sidebar nav {
+  display: grid;
+  gap: 5px;
+}
+.docs-sidebar nav > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: #57604f;
+}
+.docs-sidebar a:hover {
+  background: #e9eee1;
+}
+.docs-sidebar p {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #626c58;
+  padding: 24px 10px 8px;
+}
+.docs-home {
+  display: block;
+  padding: 30px 10px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.docs-main {
+  min-width: 0;
+  padding: 56px clamp(24px, 4vw, 64px) 0;
+}
+.docs-main section {
+  scroll-margin-top: 106px;
+  padding-bottom: 44px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.docs-main h1 {
+  font-size: clamp(40px, 5vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  font-weight: 550;
+}
+.docs-main h2 {
+  font-size: 27px;
+  letter-spacing: -0.035em;
+}
+.docs-main p,
+.docs-main li {
+  font-size: 14px;
+  color: #626a5b;
+  line-height: 1.8;
+}
+.docs-main h2 + p,
+.docs-main .docs-lead {
+  margin-top: 20px;
+}
+.docs-main p + p {
+  margin-top: 18px;
+}
+.docs-main p code,
+.docs-main td code {
+  font-size: 12px;
+  background: #e9ede2;
+  border-radius: 4px;
+  padding: 2px 4px;
+  overflow-wrap: anywhere;
+}
+.docs-main .docs-lead {
+  font-size: 17px;
+}
+.docs-notice {
+  margin: 24px 0;
+  padding: 18px 20px;
+  background: #eaf0e2;
+  border-left: 3px solid #91aa7a;
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #536347;
+}
+.docs-base {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.docs-base span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.docs-base code {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .docs-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .docs-toc {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .docs-header {
+    padding: 0 18px;
+    height: 66px;
+    gap: 12px;
+  }
+  .docs-header-label {
+    display: none;
+  }
+  .docs-header nav {
+    gap: 14px;
+    font-size: 10px;
+  }
+  .docs-layout {
+    display: block;
+  }
+  .docs-sidebar {
+    position: static;
+    height: auto;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .docs-sidebar nav {
+    display: flex;
+    overflow: auto;
+  }
+  .docs-sidebar nav > a {
+    white-space: nowrap;
+  }
+  .docs-sidebar p,
+  .docs-home {
+    display: none;
+  }
+  .docs-main {
+    padding: 36px 20px 0;
+  }
+  .docs-flow {
+    gap: 10px;
+    font-size: 10px;
+  }
+}
+.docs-sidebar .docs-home {
+  padding: 12px 10px;
+  margin-top: 28px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+.docs-sidebar .docs-home:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.mobile-navigation,
+.mobile-toc {
+  display: none;
+}
+@media (max-width: 700px) {
+  .docs-header {
+    gap: 10px;
+  }
+  .docs-header nav a:not(:last-child) {
+    display: none;
+  }
+  .mobile-navigation {
+    display: block;
+  }
+  .docs-menu-toggle {
+    display: grid;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #626c59;
+    width: 34px;
+    height: 36px;
+    padding: 4px;
+  }
+  .docs-layout > .docs-sidebar {
+    display: none;
+  }
+  .docs-menu-backdrop {
+    position: fixed;
+    inset: 66px 0 0;
+    border: 0;
+    background: #242c2240;
+    width: 100%;
+  }
+  .docs-mobile-panel {
+    position: fixed;
+    top: 66px;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    width: min(290px, 85vw);
+    background: var(--paper);
+    overflow-y: auto;
+    border-right: 1px solid var(--line);
+    padding: 20px 16px;
+  }
+  .docs-mobile-panel nav {
+    display: grid;
+    overflow: visible;
+    margin: 0;
+    gap: 5px;
+  }
+  .docs-mobile-panel nav a,
+  .docs-mobile-panel nav a:not(:last-child) {
+    display: flex;
+  }
+  .docs-mobile-panel p,
+  .docs-mobile-panel .docs-home {
+    display: block;
+  }
+  .mobile-toc {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 0 0 32px;
+    font-size: 14px;
+  }
+  .mobile-toc summary {
+    cursor: pointer;
+  }
+  .mobile-toc nav {
+    display: grid;
+    gap: 16px;
+    padding-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+}
+
+.docs-nav-group {
+  display: grid;
+  gap: 4px;
+}
+.docs-nav-group a {
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: #57604f;
+  line-height: 1.5;
+}
+.docs-sidebar a[aria-current="page"] {
+  background: #e5edda;
+  color: #3b592e;
+  font-weight: 600;
+}
+.doc-article-heading {
+  margin-bottom: 42px;
+}
+.doc-article-heading h1 {
+  font-size: clamp(34px, 4vw, 48px);
+}
+.doc-article-heading .docs-lead {
+  margin-top: 20px;
+}
+.doc-brands {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.doc-related {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+.doc-related a,
+.doc-next {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.doc-next {
+  margin-bottom: 40px;
+}
+.doc-next span {
+  color: var(--muted);
+}

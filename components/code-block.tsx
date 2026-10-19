@@ -1,7 +1,7 @@
-import React from "react"
+import type React from "react"
 
 import { Code } from "@/code"
-import { Lang } from "shiki"
+import type { Lang } from "shiki"
 
 type CodeBlockProps = {
   code: string

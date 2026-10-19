@@ -1,0 +1,14 @@
+{
+  "defaultLines": 400,
+  "defaultFiles": 25,
+  "exclude": [
+    "bun.lock",
+    ".flox/env/manifest.lock",
+    "public/",
+    "app/fonts/",
+    "app/icon.svg",
+    "app/favicon.ico"
+  ],
+  "files": {},
+  "directories": {}
+}
