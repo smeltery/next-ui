@@ -1,114 +1,81 @@
-'use client'
-
+"use client"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
-import React, { useEffect, useState } from "react"
-import { Github, GitCommit } from 'lucide-react'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { motion } from "framer-motion"
-
-const footerVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: "easeOut",
-			when: "beforeChildren",
-			staggerChildren: 0.1
-		}
-	}
-}
-
-const childVariants = {
-	hidden: { opacity: 0, y: 10 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.3, ease: "easeOut" }
-	}
-}
-
-export function Footer(): React.JSX.Element {
-	const [commitHash, setCommitHash] = useState<string | null>(null)
-
-	useEffect(() => {
-		const fetchCommitHash = async () => {
-			try {
-				const response = await fetch('/api/commit')
-				if (response.ok) {
-					const data = await response.json()
-					setCommitHash(data.commitHash)
-				} else {
-					console.error('Failed to fetch commit hash')
-				}
-			} catch (error) {
-				console.error('Error fetching commit hash:', error)
-			}
-		}
-
-		fetchCommitHash()
-	}, [])
-
-	return (
-		<motion.footer
-			className="flex flex-row gap-2 mt-32 py-6 w-full shrink-0 items-center justify-between"
-			initial="hidden"
-			animate="visible"
-			variants={footerVariants}
-		>
-			<motion.p className="text-sm text-muted-foreground" variants={childVariants}>
-				Made by{' '}
-				<Link
-					className="text-sm hover:text-primary transition-colors duration-200"
-					href="https://nicholasadamou.com"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Nicholas Adamou
-				</Link>
-				.
-			</motion.p>
-			<motion.nav className="sm:ml-auto flex gap-4 sm:gap-6 items-center" variants={childVariants}>
-				{commitHash && (
-					<TooltipProvider>
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<motion.div
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
-								>
-									<Link
-										className="text-sm transition-colors duration-200 text-muted-foreground flex items-center gap-1 bg-[#181818] py-1 px-2 rounded-full"
-										href={`https://github.com/nicholasadamou/next-ui/commit/${commitHash}`}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<GitCommit className="w-4 h-4" />
-										<span className="font-mono">{commitHash.slice(0, 7)}</span>
-									</Link>
-								</motion.div>
-							</TooltipTrigger>
-							<TooltipContent>
-								<p>View latest commit</p>
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
-				)}
-				<motion.div
-					whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 0.95 }}
-				>
-					<Link
-						className="text-sm hover:text-primary transition-colors duration-200 text-muted-foreground flex items-center gap-1"
-						href="https://github.com/nicholasadamou/next-ui"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Github className="w-4 h-4" />
-					</Link>
-				</motion.div>
-			</motion.nav>
-		</motion.footer>
-	)
+import { Github } from "lucide-react"
+import { Brand } from "./site/brand"
+const groups = [
+  {
+    title: "The library",
+    links: [
+      ["All components", "/components"],
+      ["Borders & light", "/docs/components#borders-and-light"],
+      ["Motion & backgrounds", "/docs/components#motion-and-depth"]
+    ]
+  },
+  {
+    title: "Resources",
+    links: [
+      ["Brand & assets", "/brand"],
+      ["Documentation", "/docs"],
+      ["Getting started", "/docs/quick-start"],
+      ["Our approach", "/docs/approach"],
+      ["Contributing", "/docs/contributing"]
+    ]
+  },
+  {
+    title: "In the open",
+    links: [
+      ["About Smeltery", "https://github.com/smeltery"],
+      ["Contact", "https://github.com/smeltery/next-ui/issues/new"],
+      ["Privacy", "/docs/privacy"],
+      ["GitHub repository", "https://github.com/smeltery/next-ui"],
+      ["Feedback & issues", "https://github.com/smeltery/next-ui/issues"],
+      ["Credits & acknowledgments", "/docs/credits"]
+    ]
+  }
+]
+export function Footer() {
+  const pathname = usePathname()
+  if (pathname.startsWith("/docs")) return null
+  return (
+    <footer className="site-footer">
+      <div className="wrap">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Brand />
+            <p>
+              A little interaction.
+              <br />A lot more character.
+            </p>
+            <span>Thoughtful components for the interfaces you build.</span>
+          </div>
+          {groups.map((group) => (
+            <nav key={group.title} aria-label={group.title}>
+              <h2>{group.title}</h2>
+              {group.links.map(([label, href]) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className={
+                    label === "GitHub repository" ? "icon-link" : undefined
+                  }
+                >
+                  {label === "GitHub repository" && <Github size={15} />}{" "}
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          ))}
+        </div>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Smeltery Labs</span>
+          <a href="https://github.com/smeltery/next-ui/blob/master/LICENSE">
+            PolyForm Shield license
+          </a>
+          <span className="footer-note">Built for the way you work.</span>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  )
 }

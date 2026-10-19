@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<title>Next UI — Better React UI. Copy. Paste. Ship.</title>
+<defs>
+<pattern id="dither" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 0h2v2H0zm4 4h2v2H4z" fill="#555"/></pattern>
+<linearGradient id="fade"><stop stop-color="#080808"/><stop offset="1" stop-color="#080808" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="#080808"/>
+<rect x="740" y="116" width="412" height="412" fill="url(#dither)"/>
+<rect x="740" y="116" width="412" height="412" fill="url(#fade)"/>
+<g transform="translate(56 46)"><rect width="40" height="40" rx="9" fill="#f5f5f5"/><path d="M9 29V11h5l17 18h-7l-9-10v10Zm16-18h6v13l-6-6Z" fill="#080808"/></g>
+<g fill="#f5f5f5" font-family="Arial,Helvetica,sans-serif">
+<text x="110" y="75" font-size="25" font-weight="600" letter-spacing="-.8">smeltery <tspan fill="#a3a3a3" font-weight="400">/ next-ui</tspan></text>
+<text x="56" y="179" fill="#a3a3a3" font-family="monospace" font-size="13" letter-spacing="2">COPY-AND-PASTE REACT COMPONENTS</text>
+<text x="52" y="265" font-size="76" font-weight="600" letter-spacing="-4">Better React UI.</text>
+<text x="52" y="355" font-family="Georgia,serif" font-style="italic" font-size="77" letter-spacing="-3">Copy. Paste. Ship.</text>
+<text x="56" y="419" font-size="21" fill="#a3a3a3">Nine effects. Editable source. Yours to shape.</text>
+<g transform="translate(837 197) scale(6.5)"><rect width="40" height="40" rx="9" fill="#f5f5f5"/><path d="M9 29V11h5l17 18h-7l-9-10v10Zm16-18h6v13l-6-6Z" fill="#080808"/></g>
+<path d="M56 548H1144" stroke="#303030"/>
+<text x="56" y="586" font-size="15" fill="#a3a3a3">React · TypeScript · Tailwind CSS</text>
+<text x="1144" y="586" text-anchor="end" font-family="monospace" font-size="13" fill="#a3a3a3">github.com/smeltery/next-ui</text>
+</g>
+</svg>

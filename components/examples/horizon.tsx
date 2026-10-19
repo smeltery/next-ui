@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { ExampleProps } from "@/types/type"
+import type { ExampleProps } from "@/types/type"
 
 export const Horizon = ({ children, className }: ExampleProps) => {
   const [isHover, setIsHover] = React.useState(false)

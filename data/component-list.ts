@@ -91,14 +91,14 @@ export const COMPONENTS_LIST = [
     name: "Infinite Carousel",
     component: InfiniteCarouselDemo,
     slug: "infinite-carousel",
-    description: "A carousel component with infinite motion.",
+    description: "A carousel component with infinite motion."
   },
   {
     name: "Meteors",
     component: MeteorsDemo,
     slug: "meteors",
     description: "A continuous meteor shower effect.",
-    twConfig: TWCONFIG["meteors"]
+    twConfig: TWCONFIG.meteors
   },
   {
     name: "Dynamic Grid Pattern",

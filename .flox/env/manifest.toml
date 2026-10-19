@@ -1,0 +1,17 @@
+schema-version = "1.18.0"
+
+[install]
+bun.pkg-path = "bun"
+bun.version = "1.3.11"
+nodejs.pkg-path = "nodejs_22"
+git.pkg-path = "git"
+pre-commit.pkg-path = "pre-commit"
+
+[vars]
+NEXT_TELEMETRY_DISABLED = "1"
+
+[services.preview]
+command = "bun run dev --hostname 0.0.0.0"
+
+[options]
+systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]

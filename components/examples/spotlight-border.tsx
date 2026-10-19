@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { SpotlightProps } from "@/types/type"
+import type { SpotlightProps } from "@/types/type"
 
 export const SpotlightBorder = ({
   className,

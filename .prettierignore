@@ -1,0 +1,11 @@
+node_modules
+.next
+.website-studio
+.flox
+bun.lock
+pnpm-lock.yaml
+public
+app/fonts
+app/favicon.ico
+
+.next-dev

@@ -1,0 +1,234 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding-block: 16px 0;
+}
+.header-inner {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: #151515bd;
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding-inline: 22px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.brand:hover {
+  text-decoration: none;
+}
+.brand-sub {
+  font-weight: 400;
+  color: var(--muted);
+}
+.desktop-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  height: 100%;
+  align-items: center;
+}
+.desktop-nav a {
+  font-size: 12px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  transition: background 0.18s;
+}
+.desktop-nav a[aria-current] {
+  background: #151515;
+  color: var(--ink);
+}
+.desktop-nav a:hover {
+  background: #151515;
+  text-decoration: none;
+}
+.github-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 12px;
+}
+.github-link:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+.menu-toggle {
+  display: none;
+  padding: 10px;
+  background: transparent;
+}
+.mobile-nav {
+  padding: 12px 20px 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
+  margin-top: 8px;
+}
+.mobile-nav a[aria-current] {
+  color: var(--accent);
+  font-weight: 600;
+}
+.mobile-nav a {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.site-footer {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  padding: 57px 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+  gap: 40px;
+}
+.site-footer .brand img {
+  object-fit: contain;
+}
+.footer-brand > p {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  margin: 22px 0 14px;
+}
+.footer-brand > span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.footer-grid nav h2 {
+  font: 10px var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin: 7px 0 24px;
+}
+.footer-grid nav > a {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 15px;
+  width: fit-content;
+}
+.footer-grid nav > .icon-link {
+  display: flex;
+}
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 48px;
+  padding-top: 23px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.footer-note {
+  margin-left: auto;
+}
+
+@media (max-width: 1100px) {
+  .wrap {
+    width: calc(100% - 64px);
+  }
+  .desktop-nav a {
+    padding: 8px;
+  }
+}
+@media (max-width: 780px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+  .site-header {
+    padding-top: 10px;
+  }
+  .header-inner {
+    height: 60px;
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .brand {
+    font-size: 16px;
+    gap: 8px;
+  }
+  .brand img {
+    width: 28px;
+    height: 28px;
+  }
+  .desktop-nav,
+  .header-inner > .github-link {
+    display: none;
+  }
+  .header-search-trigger {
+    margin-left: auto;
+  }
+  .header-search-trigger span,
+  .header-search-trigger kbd {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+  }
+  .footer-brand {
+    grid-column: 1/-1;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    gap: 14px 24px;
+  }
+  .footer-note {
+    display: none;
+  }
+  .footer-bottom > a:last-child {
+    margin-left: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .brand-org,
+  .site-header .brand-divider {
+    display: none;
+  }
+  .site-header .brand-sub {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}

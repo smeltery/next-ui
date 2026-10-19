@@ -1,108 +1,104 @@
-'use client'
-
-import { useEffect, useState } from "react";
-import { COMPONENTS_LIST } from "@/data/component-list"
-import { CardContainer } from "@/components/card-container"
-import { motion } from "framer-motion"
-
-const shuffleArray = (array: any[]) => {
-	return array.sort(() => Math.random() - 0.5);
-};
-
-const headerVariants = {
-	hidden: { opacity: 0, y: -20 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.6,
-			when: "beforeChildren",
-			staggerChildren: 0.2
-		}
-	}
-}
-
-const childVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.5 }
-	}
-}
-
-const gridVariants = {
-	hidden: { opacity: 0 },
-	visible: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.1,
-			delayChildren: 0.3
-		}
-	}
-}
-
-const gridItemVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.5 }
-	}
-}
-
+import Link from "next/link"
+import { HeroPreview } from "@/components/site/hero-preview"
+import { MarketingSections, MarketingClose } from "@/components/site/marketing"
 export default function Home() {
-	const [components, setComponents] = useState(COMPONENTS_LIST);
-
-	useEffect(() => {
-		setComponents(shuffleArray([...COMPONENTS_LIST]));
-	}, []);
-
-	return (
-		<>
-			<motion.section
-				initial="hidden"
-				animate="visible"
-				variants={headerVariants}
-			>
-				<div className="relative z-0 mx-auto max-w-3xl pb-24 pt-12 text-center">
-					<motion.div variants={childVariants}>
-						<motion.h1
-							className="bg-gradient-to-br from-white to-stone-500 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]"
-							variants={childVariants}
-						>
-							React + Tailwind components
-						</motion.h1>
-						<motion.p
-							className="mt-6 text-center text-gray-500 [text-wrap:balance] md:text-xl"
-							variants={childVariants}
-						>
-							A collection of copy-paste interactive components for your
-							projects.
-						</motion.p>
-					</motion.div>
-				</div>
-			</motion.section>
-			<motion.div
-				className="mx-auto max-w-7xl py-10"
-				variants={gridVariants}
-				initial="hidden"
-				animate="visible"
-			>
-				<div className="grid grid-cols-1 gap-36 md:grid-cols-2 lg:grid-cols-3">
-					{components.map((item, index) => (
-						<motion.div key={index} variants={gridItemVariants}>
-							<CardContainer
-								slug={item.slug}
-								name={item.name}
-								description={item.description}
-							>
-								<item.component />
-							</CardContainer>
-						</motion.div>
-					))}
-				</div>
-			</motion.div>
-		</>
-	)
+  return (
+    <>
+      <section className="wrap home-hero">
+        <div>
+          <p className="eyebrow">
+            <span className="status-dot" />
+            Copy-and-paste React components
+          </p>
+          <h1>
+            Better React UI.
+            <br />
+            <em>Copy. Paste. Ship.</em>
+          </h1>
+          <p className="lead">
+            Spotlights, animated borders, and backgrounds—ready to copy into
+            your app. Pick an effect, take the React code, and make it yours.
+          </p>
+          <div className="hero-actions">
+            <Link href="/components" className="button">
+              Explore 9 components
+            </Link>
+            <Link href="/docs/quick-start" className="text-link">
+              How to use them
+            </Link>
+          </div>
+          <div className="hero-meta">
+            <span>Editable source</span>
+            <span>React + Tailwind CSS</span>
+            <span>No UI package</span>
+          </div>
+        </div>
+        <HeroPreview />
+      </section>
+      <div className="wrap value-strip">
+        <span>Built with the tools you already use.</span>
+        <div>
+          <img src="/brand/react.svg" width="22" height="22" alt="" />
+          React
+        </div>
+        <div>
+          <img src="/brand/typescript.svg" width="20" height="20" alt="" />
+          TypeScript
+        </div>
+        <div>
+          <img src="/brand/tailwind.svg" width="25" height="20" alt="" />
+          Tailwind CSS
+        </div>
+        <div>
+          <img src="/brand/nextdotjs.svg" width="22" height="22" alt="" />
+          Next.js
+        </div>
+      </div>
+      <MarketingSections />
+      <section className="getting-started-band">
+        <div className="wrap">
+          <div>
+            <p className="eyebrow">From inspiration to implementation</p>
+            <h2>
+              Your next detail
+              <br />
+              <em>is already here.</em>
+            </h2>
+            <Link className="button" href="/docs/quick-start">
+              Build your first component
+            </Link>
+          </div>
+          <ol>
+            <li>
+              <span>01</span>
+              <div>
+                <h3>Find the right feeling.</h3>
+                <p>
+                  Explore the live previews. Hover, interact, and see what fits.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <h3>Take the source.</h3>
+                <p>Copy the component and its example into your project.</p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <h3>Make it your own.</h3>
+                <p>
+                  Adjust the colors, timing, and behavior. Every detail is
+                  yours.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <MarketingClose />
+    </>
+  )
 }
