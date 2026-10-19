@@ -20,19 +20,6 @@ dialog::backdrop {
   background: #20261dcc;
   backdrop-filter: blur(5px);
 }
-dialog[open] {
-  animation: panel-in 160ms ease-out;
-}
-@keyframes panel-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .header-search-trigger {
   display: flex;
   align-items: center;

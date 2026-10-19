@@ -63,6 +63,10 @@ test("mobile navigation closes and restores scrolling", async ({
   await page.goto("/")
   await page.getByRole("button", { name: "Menu", exact: true }).click()
   await expect(page.getByRole("dialog", { name: "What’s next?" })).toBeVisible()
+  await expect(page.getByRole("dialog", { name: "What’s next?" })).toHaveCSS(
+    "opacity",
+    "1"
+  )
   await page.getByRole("button", { name: "Close navigation" }).click()
   await expect(
     page.getByRole("button", { name: "Menu", exact: true })
