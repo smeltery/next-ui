@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Github, Menu, Search } from "lucide-react"
+import { Icons } from "@/components/icons"
+import { Menu, Search } from "lucide-react"
 import { Brand } from "./site/brand"
 import { DocsMobileNavigation } from "./docs/mobile-navigation"
 import { MobileMenu } from "./site/mobile-menu"
@@ -84,7 +85,7 @@ export function Navbar() {
             aria-label="GitHub repository"
             href="https://github.com/smeltery/next-ui"
           >
-            <Github size={16} />
+            <Icons.github style={{ width: 16, height: 16 }} />
             <span>GitHub</span>
           </a>
           <button

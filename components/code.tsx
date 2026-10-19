@@ -1,9 +1,9 @@
 import { highlight } from "@/lib/shiki"
-import type { Lang } from "shiki"
+import type { BundledLanguage } from "shiki"
 
 type CodeProps = {
   code: string
-  lang: Lang
+  lang: BundledLanguage
 }
 
 export const Code = async ({ code, lang }: CodeProps) => {

@@ -1,11 +1,11 @@
 import type React from "react"
 
 import { Code } from "@/code"
-import type { Lang } from "shiki"
+import type { BundledLanguage } from "shiki"
 
 type CodeBlockProps = {
   code: string
-  lang: Lang
+  lang: BundledLanguage
   fileName?: string
 }
 
