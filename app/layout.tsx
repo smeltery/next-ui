@@ -11,15 +11,16 @@ export const metadata: Metadata = {
   description:
     "Nine copy-paste React components. Explore live previews, take the TypeScript source, and make every interaction your own.",
   metadataBase: new URL(
-    process.env.SITE_URL || "https://next-ui-orcin-chi.vercel.app"
+    process.env.SITE_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "https://next-ui-orcin-chi.vercel.app")
   ),
   openGraph: {
     title: "Next UI — Small details. Better interfaces.",
     images: [
       {
-        url: process.env.SITE_URL
-          ? "/brand/og.png"
-          : "https://raw.githubusercontent.com/smeltery/next-ui/master/public/brand/og.png",
+        url: "/brand/og.png",
         width: 1200,
         height: 630,
         alt: "Next UI: small details, better interfaces. React, TypeScript, Tailwind CSS."
@@ -28,11 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: [
-      process.env.SITE_URL
-        ? "/brand/og.png"
-        : "https://raw.githubusercontent.com/smeltery/next-ui/master/public/brand/og.png"
-    ]
+    images: ["/brand/og.png"]
   },
   robots: process.env.SITE_URL
     ? { index: true, follow: true }
