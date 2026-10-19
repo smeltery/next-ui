@@ -92,7 +92,7 @@
   justify-content: center;
   overflow: hidden;
   padding: 28px;
-  color: #151515;
+  color: var(--ink);
 }
 .component-demo > div {
   max-width: 100%;
