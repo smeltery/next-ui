@@ -73,7 +73,7 @@ export default function BrandPage() {
             width="1200"
             height="630"
             loading="lazy"
-            alt="Next UI social preview: Better React UI. Copy. Paste. Ship. Beside the geometric N mark."
+            alt="Next UI social preview: Better React UI. Copy. Paste. Ship. Beside Spotlight, Animated Border, and Dynamic Grid previews."
           />
         </figure>
       </section>

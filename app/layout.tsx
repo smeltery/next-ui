@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/brand/og.png",
         width: 1200,
         height: 630,
-        alt: "Next UI: Better React UI. Copy. Paste. Ship. Nine editable React components."
+        alt: "Next UI: Better React UI. Copy. Paste. Ship. Spotlight, Animated Border, and Dynamic Grid component previews."
       }
     ]
   },
