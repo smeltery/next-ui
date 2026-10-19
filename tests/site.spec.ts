@@ -116,7 +116,14 @@ test("docs render Mermaid, navigate, and keep working local links", async ({
   }
 })
 
-for (const route of ["/", "/components", "/docs", "/docs/api", "/spotlight"]) {
+for (const route of [
+  "/",
+  "/components",
+  "/brand",
+  "/docs",
+  "/docs/api",
+  "/spotlight"
+]) {
   test(`accessible and no overflow: ${route}`, async ({ page }) => {
     await page.goto(route)
     const results = await new AxeBuilder({ page })
@@ -137,6 +144,7 @@ test("320px reflow and reduced motion", async ({ page }) => {
   for (const route of [
     "/",
     "/components",
+    "/brand",
     "/docs/api",
     "/docs/quick-start",
     "/dynamic-grid-pattern"
@@ -222,4 +230,46 @@ test("documentation drawer and code-copy work", async ({
   await expect
     .poll(() => page.evaluate(() => navigator.clipboard.readText()))
     .toContain("spotlightColor")
+})
+
+test("brand palette copies colors and recovers from clipboard denial", async ({
+  page,
+  context
+}) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"])
+  await page.goto("/brand")
+  await page.getByRole("button", { name: "Copy Canvas #080808" }).click()
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toBe("#080808")
+  await expect(page.getByRole("status")).toHaveText("Canvas color copied.")
+  await page.evaluate(() =>
+    Object.defineProperty(navigator.clipboard, "writeText", {
+      value: () => Promise.reject(new Error("denied"))
+    })
+  )
+  await page.getByRole("button", { name: "Copy Ink #f5f5f5" }).click()
+  await expect(
+    page.getByRole("textbox", { name: "Color hex value" })
+  ).toHaveValue("#f5f5f5")
+})
+
+test("brand route preserves the old URL and downloads original assets", async ({
+  page,
+  request
+}) => {
+  await page.goto("/docs/brand")
+  await expect(page).toHaveURL(/\/brand$/)
+  await page.getByRole("link", { name: "Get the assets" }).click()
+  await expect(page).toHaveURL(/\/brand#downloads$/)
+  const download = page.waitForEvent("download")
+  await page.getByRole("link", { name: "Download vector mark" }).click()
+  expect((await download).suggestedFilename()).toBe("mark.svg")
+  for (const asset of ["mark.svg", "og.png", "icon.png"]) {
+    const response = await request.get(`/brand/${asset}`)
+    expect(response.status()).toBe(200)
+    expect(response.headers()["content-type"]).toContain(
+      asset.endsWith("svg") ? "image/svg+xml" : "image/png"
+    )
+  }
 })

@@ -7,7 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     "/",
     "/components",
+    "/brand",
     ...COMPONENTS_LIST.map((item) => `/${item.slug}`),
-    ...DOCS.map((item) => `/docs/${item.slug}`)
+    ...DOCS.filter((item) => item.slug !== "brand").map(
+      (item) => `/docs/${item.slug}`
+    )
   ].map((route) => ({ url: new URL(route, origin).href }))
 }

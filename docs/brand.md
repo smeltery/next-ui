@@ -2,8 +2,11 @@
 
 Next UI uses a compact N monogram, black surfaces, white typography, and ordered dither textures. The wordmark is `smeltery / next-ui`.
 
+[Explore the brand page](/brand) for logo specimens, the social preview, copyable colors, typography, and individual downloads.
+
 ## Downloads
 
+- [Browser icon PNG](/brand/icon.png)
 - [Logo SVG](/brand/mark.svg)
 - [Social preview PNG](/brand/og.png)
 - [Social preview SVG](/brand/og.svg)

@@ -12,7 +12,7 @@ export function DocsNavigation({ slug }: { slug: string }) {
           {DOCS.filter((item) => item.group === group).map((item) => (
             <Link
               key={item.slug}
-              href={`/docs/${item.slug}`}
+              href={item.slug === "brand" ? "/brand" : `/docs/${item.slug}`}
               aria-current={slug === item.slug ? "page" : undefined}
             >
               {item.title}
