@@ -150,6 +150,9 @@ test("320px reflow and reduced motion", async ({ page }) => {
     "/dynamic-grid-pattern"
   ]) {
     await page.goto(route)
+    const brand = await page.locator("header .brand").boundingBox()
+    const search = await page.locator(".header-search-trigger").boundingBox()
+    expect(brand && search && brand.x + brand.width <= search.x).toBe(true)
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= window.innerWidth

@@ -222,3 +222,14 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+@media (max-width: 380px) {
+  .site-header .brand-org,
+  .site-header .brand-divider {
+    display: none;
+  }
+  .site-header .brand-sub {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}
