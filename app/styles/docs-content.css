@@ -46,7 +46,7 @@
 }
 .docs-toc > .eyebrow {
   font-size: 9px;
-  color: #686f60;
+  color: #b5b5b5;
   letter-spacing: 0.12em;
 }
 .docs-toc nav {
@@ -56,7 +56,7 @@
 }
 .docs-toc nav a {
   font-size: 11px;
-  color: #636e58;
+  color: #b5b5b5;
   line-height: 1.4;
 }
 .doc-content h2 {
@@ -75,7 +75,7 @@
   margin: 18px 0;
 }
 .doc-content a {
-  color: #465d36;
+  color: #b5b5b5;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -89,7 +89,7 @@
 }
 .doc-content pre {
   padding: 22px;
-  background: #eef1e8;
+  background: #151515;
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: auto;
@@ -116,7 +116,7 @@
 .doc-diagram {
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fcfdf9;
+  background: #151515;
   overflow: auto;
   padding: 24px;
   margin: 24px 0;
@@ -142,7 +142,7 @@
   align-items: center;
   gap: 12px;
   font-size: 11px;
-  color: #626e58;
+  color: #b5b5b5;
   min-height: 44px;
   width: 100%;
   background: none;
@@ -217,4 +217,8 @@
     display: block;
     margin-bottom: 35px;
   }
+}
+
+.doc-actions img {
+  filter: grayscale(1) invert(1);
 }

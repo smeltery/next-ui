@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(247, 247, 242, 0.96);
+  background: rgba(10, 10, 10, 0.96);
   padding-block: 16px 0;
   backdrop-filter: blur(12px);
 }
@@ -12,7 +12,7 @@
   align-items: center;
   gap: 12px;
   border: 1px solid var(--line);
-  background: #ffffffbd;
+  background: #151515bd;
   border-radius: 999px;
   padding-inline: 22px;
 }
@@ -46,11 +46,11 @@
   transition: background 0.18s;
 }
 .desktop-nav a[aria-current] {
-  background: #eceee5;
+  background: #151515;
   color: var(--ink);
 }
 .desktop-nav a:hover {
-  background: #f0f1eb;
+  background: #151515;
   text-decoration: none;
 }
 .github-link {
@@ -59,14 +59,14 @@
   align-items: center;
   border: 1px solid var(--ink);
   background: var(--ink);
-  color: white;
+  color: var(--paper);
   border-radius: 999px;
   padding: 9px 14px;
   font-size: 12px;
 }
 .github-link:hover {
   background: var(--accent);
-  color: white;
+  color: var(--paper);
 }
 .menu-toggle {
   display: none;

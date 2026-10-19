@@ -24,10 +24,10 @@ export function Diagrams() {
           securityLevel: "strict",
           theme: "base",
           themeVariables: {
-            primaryColor: "#edf2e5",
-            primaryTextColor: "#526447",
-            primaryBorderColor: "#b5c89f",
-            lineColor: "#84976f",
+            primaryColor: "#202020",
+            primaryTextColor: "#eeeeee",
+            primaryBorderColor: "#777777",
+            lineColor: "#aaaaaa",
             fontFamily: "sans-serif"
           }
         })

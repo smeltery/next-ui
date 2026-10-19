@@ -1,11 +1,11 @@
 :root {
-  --paper: #f7f7f2;
-  --white: #ffffff;
-  --ink: #292b25;
-  --muted: #696d63;
-  --line: #e1e3d9;
-  --sage: #eceee5;
-  --accent: #526447;
+  --paper: #080808;
+  --white: #151515;
+  --ink: #f5f5f5;
+  --muted: #a3a3a3;
+  --line: #303030;
+  --surface: #181818;
+  --accent: #e0e0e0;
   --serif: Georgia, "Times New Roman", serif;
   --sans: "DM Sans Variable", -apple-system, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -13,7 +13,7 @@
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
-  color-scheme: light;
+  color-scheme: dark;
 }
 * {
   box-sizing: border-box;
@@ -71,7 +71,7 @@ textarea:focus-visible,
 }
 ::selection {
   color: var(--ink);
-  background: #d5dfc7;
+  background: #444444;
 }
 h1,
 h2,
@@ -139,7 +139,7 @@ button[hidden],
   left: 8px;
   padding: 12px 20px;
   background: var(--ink);
-  color: white;
+  color: var(--paper);
   z-index: 100;
   transform: translateY(-160%);
 }
@@ -163,7 +163,7 @@ button[hidden],
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #7b8866;
+  background: #888888;
   margin-right: 9px;
 }
 .button {
@@ -184,17 +184,17 @@ button[hidden],
 }
 .button:hover {
   background: var(--accent);
-  color: white;
+  color: var(--paper);
   text-decoration: none;
   transform: translateY(-1px);
 }
 .button.secondary {
   background: transparent;
   color: var(--ink);
-  border-color: #bcc6b7;
+  border-color: #444444;
 }
 .button.secondary:hover {
-  background: var(--sage);
+  background: var(--surface);
 }
 .text-link {
   font-size: 13px;
@@ -202,7 +202,7 @@ button[hidden],
   gap: 16px;
   align-items: center;
   text-decoration: underline;
-  text-decoration-color: #b3b9a9;
+  text-decoration-color: #444444;
   text-underline-offset: 5px;
   text-decoration-thickness: 1px;
 }

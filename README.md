@@ -10,9 +10,9 @@ Small details. Better interfaces. Nine copy-paste React components with live pre
 ![Next.js](https://img.shields.io/badge/Next.js-14-292b25?logo=nextdotjs)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-292b25?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-292b25?logo=tailwindcss)
-![Bun](https://img.shields.io/badge/Bun-1.3.11-526447?logo=bun)
-[![Flox](https://img.shields.io/badge/dev_environment-Flox-526447)](.flox/env/manifest.toml)
-[![License](https://img.shields.io/badge/license-PolyForm_Shield-526447)](LICENSE)
+![Bun](https://img.shields.io/badge/Bun-1.3.11-222222?logo=bun)
+[![Flox](https://img.shields.io/badge/dev_environment-Flox-222222)](.flox/env/manifest.toml)
+[![License](https://img.shields.io/badge/license-PolyForm_Shield-222222)](LICENSE)
 
 ![Next UI — Small details. Better interfaces.](public/brand/og.png)
 

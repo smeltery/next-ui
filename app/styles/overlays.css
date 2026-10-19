@@ -17,7 +17,7 @@ dialog {
   padding: 0;
 }
 dialog::backdrop {
-  background: #20261dcc;
+  background: #111111cc;
   backdrop-filter: blur(5px);
 }
 .header-search-trigger {
@@ -32,14 +32,14 @@ dialog::backdrop {
   min-height: 38px;
 }
 .header-search-trigger:hover {
-  background: var(--sage);
+  background: var(--surface);
 }
 kbd {
   font: 10px var(--sans);
   padding: 2px 5px;
-  border: 1px solid #d5dacb;
+  border: 1px solid #444444;
   border-radius: 4px;
-  background: #ffffff80;
+  background: #15151580;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -54,7 +54,7 @@ kbd {
   border: 1px solid var(--line);
 }
 .close-overlay:hover {
-  background: #e5e9db;
+  background: #151515;
 }
 .overlay-heading {
   display: flex;
@@ -72,7 +72,7 @@ kbd {
   max-height: min(720px, calc(100dvh - 64px));
   border-radius: 22px;
   margin: max(32px, 9dvh) auto auto;
-  box-shadow: 0 25px 100px #16201940;
+  box-shadow: 0 25px 100px #11111140;
 }
 .search-dialog[open] {
   display: flex;
@@ -83,8 +83,8 @@ kbd {
   align-items: center;
   gap: 13px;
   margin: 0 26px;
-  border: 1px solid #b9c3ac;
-  background: white;
+  border: 1px solid #444444;
+  background: var(--white);
   border-radius: 12px;
   padding: 0 15px;
   flex-shrink: 0;
@@ -125,11 +125,11 @@ kbd {
   font-size: 12px;
 }
 .search-scopes button:hover {
-  background: #e9eddf;
+  background: #151515;
 }
 .search-scopes button[aria-pressed="true"] {
   background: var(--ink);
-  color: white;
+  color: var(--paper);
 }
 .search-results-scroll {
   overflow-y: auto;
@@ -154,7 +154,7 @@ kbd {
 }
 .search-result:hover,
 .search-result:focus-visible {
-  background: #e9eddf;
+  background: #151515;
   color: var(--ink);
 }
 .search-result:focus-visible {
@@ -169,7 +169,7 @@ kbd {
   border-radius: 10px;
   display: grid;
   place-items: center;
-  background: #ffffffa6;
+  background: #151515a6;
   color: var(--accent);
 }
 .result-copy {

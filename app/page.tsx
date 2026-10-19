@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { ComponentCatalog } from "@/components/site/component-catalog"
-import { Layers, MousePointer2, Code2 } from "lucide-react"
 export default function Home() {
   return (
     <>
@@ -35,49 +34,43 @@ export default function Home() {
           </div>
         </div>
         <div
-          className="hero-preview"
-          aria-label="A preview of the Next UI component collection"
+          className="hero-specimen"
+          aria-label="A dithered N monogram: light, motion, and detail"
         >
-          <div className="preview-toolbar">
+          <div className="specimen-top">
+            <span>FIG. 001 — THE INTERFACE STUDY</span>
+            <span>1 BIT / ∞ POSSIBILITIES</span>
+          </div>
+          <img
+            className="dither-mark"
+            src="/brand/dither.svg"
+            width="600"
+            height="540"
+            alt=""
+          />
+          <span className="specimen-cross cross-top" aria-hidden="true">
+            +
+          </span>
+          <span className="specimen-cross cross-bottom" aria-hidden="true">
+            +
+          </span>
+          <div className="specimen-caption">
             <span>
-              <i />
-              <i />
-              <i />
+              01 LIGHT
+              <br />
+              02 MOTION
+              <br />
+              03 DETAIL
             </span>
-            <span>the little things / next-ui</span>
-            <Layers size={15} />
+            <strong>
+              Less noise.
+              <br />
+              <em>More feeling.</em>
+            </strong>
           </div>
-          <div className="preview-grid">
-            <div className="sample-spotlight">
-              <span className="mini-label">01 / LIGHT</span>
-              <div className="sample-orb" />
-              <strong>Find your spotlight.</strong>
-              <span>A subtle glow. A little focus.</span>
-              <MousePointer2 className="sample-cursor" size={25} />
-            </div>
-            <div className="sample-border">
-              <span className="mini-label">02 / DETAIL</span>
-              <div className="border-sample">Made to stand out.</div>
-            </div>
-            <div className="sample-grid">
-              <span className="mini-label">03 / MOTION</span>
-              <div className="grid-sample">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-            </div>
-          </div>
-          <div className="preview-bottom">
-            <Code2 size={15} />
-            <span>Good details. No black boxes.</span>
-            <span className="preview-live">● Live in your code</span>
+          <div className="specimen-bottom">
+            <span>RAW MATERIAL FOR YOUR NEXT IDEA</span>
+            <span>next-ui / 001</span>
           </div>
         </div>
       </section>

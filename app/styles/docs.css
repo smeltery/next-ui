@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  background: #f6f6f3f5;
+  background: #151515f5;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -50,16 +50,16 @@
   padding: 10px;
   font-size: 12px;
   border-radius: 6px;
-  color: #57604f;
+  color: #b5b5b5;
 }
 .docs-sidebar a:hover {
-  background: #e9eee1;
+  background: #151515;
 }
 .docs-sidebar p {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #626c58;
+  color: #b5b5b5;
   padding: 24px 10px 8px;
 }
 .docs-home {
@@ -91,7 +91,7 @@
 .docs-main p,
 .docs-main li {
   font-size: 14px;
-  color: #626a5b;
+  color: #b5b5b5;
   line-height: 1.8;
 }
 .docs-main h2 + p,
@@ -104,7 +104,7 @@
 .docs-main p code,
 .docs-main td code {
   font-size: 12px;
-  background: #e9ede2;
+  background: #151515;
   border-radius: 4px;
   padding: 2px 4px;
   overflow-wrap: anywhere;
@@ -115,12 +115,12 @@
 .docs-notice {
   margin: 24px 0;
   padding: 18px 20px;
-  background: #eaf0e2;
-  border-left: 3px solid #91aa7a;
+  background: #151515;
+  border-left: 3px solid #888888;
   border-radius: 0 8px 8px 0;
   font-size: 13px;
   line-height: 1.7;
-  color: #536347;
+  color: #b5b5b5;
 }
 .docs-base {
   display: grid;
@@ -218,7 +218,7 @@
     place-items: center;
     border: 0;
     background: transparent;
-    color: #626c59;
+    color: #b5b5b5;
     width: 34px;
     height: 36px;
     padding: 4px;
@@ -230,7 +230,7 @@
     position: fixed;
     inset: 66px 0 0;
     border: 0;
-    background: #242c2240;
+    background: #11111140;
     width: 100%;
   }
   .docs-mobile-panel {
@@ -287,12 +287,12 @@
   padding: 10px;
   font-size: 12px;
   border-radius: 6px;
-  color: #57604f;
+  color: #b5b5b5;
   line-height: 1.5;
 }
 .docs-sidebar a[aria-current="page"] {
-  background: #e5edda;
-  color: #3b592e;
+  background: #151515;
+  color: #b5b5b5;
   font-weight: 600;
 }
 .doc-article-heading {
