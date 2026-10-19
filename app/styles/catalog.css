@@ -1,3 +1,6 @@
+.catalog-filters > fieldset {
+  min-width: 0;
+}
 .catalog-layout {
   display: grid;
   grid-template-columns: 200px minmax(0, 1fr);
@@ -275,7 +278,7 @@
   .catalog-help {
     display: none;
   }
-  .catalog-filters > div:first-of-type {
+  .catalog-filters > fieldset {
     display: flex;
     overflow: auto;
     margin-bottom: 20px;

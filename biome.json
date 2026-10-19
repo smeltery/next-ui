@@ -1,15 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
   "files": {
-    "ignore": [
-      ".next/**/*",
-      "node_modules/**/*",
-      "public/**/*",
-      "dist/**/*",
-      ".website-studio/**/*",
-      ".flox/**/*",
-      "test-results/**/*",
-      ".next-dev/**/*"
+    "includes": [
+      "**",
+      "!**/.next/**/*",
+      "!**/node_modules/**/*",
+      "!**/public/**/*",
+      "!**/dist/**/*",
+      "!**/.website-studio/**/*",
+      "!**/.flox/**/*",
+      "!**/test-results/**/*",
+      "!**/.next-dev/**/*"
     ]
   },
   "formatter": {
@@ -21,13 +22,17 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": {
-    "enabled": true
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "a11y": {
         "useKeyWithClickEvents": "off"
       },
@@ -54,7 +59,12 @@
   },
   "overrides": [
     {
-      "include": ["*.ts", "*.tsx"]
+      "includes": ["**/*.ts", "**/*.tsx"]
     }
-  ]
+  ],
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
 }

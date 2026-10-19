@@ -1,10 +1,10 @@
 # Quick start
 
-Bring a component into an existing React application. The examples target Tailwind CSS 3; Tailwind 4 projects need to translate the theme and animation configuration.
+Bring a component into an existing React application. The examples target Tailwind CSS 4 and use a JavaScript theme configuration loaded with `@config`.
 
 ## Prepare your project
 
-Start with React 18 or later, TypeScript, and a working Tailwind CSS 3 build. Install the utilities used by the examples:
+Start with React 19 or later, TypeScript, and a working Tailwind CSS 4 build. Install the utilities used by the examples:
 
 ```sh
 bun add clsx tailwind-merge

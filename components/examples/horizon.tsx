@@ -15,6 +15,7 @@ export const Horizon = ({ children, className }: ExampleProps) => {
     setIsHover(false)
   }
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: Pointer handlers only drive decorative effects; children provide semantic controls.
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

@@ -1,6 +1,5 @@
+@import "tailwindcss";
 @import "./styles/base.css";
-@import "./styles/components.css";
-@import "./styles/utilities.css";
 @import "./styles/site.css";
 @import "./styles/chrome.css";
 @import "./styles/overlays.css";
@@ -17,3 +16,5 @@
 @import "./styles/brand.css";
 
 @import "./styles/hero-product.css";
+
+@config "../tailwind.config.ts";

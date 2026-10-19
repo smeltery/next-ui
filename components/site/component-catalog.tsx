@@ -31,7 +31,7 @@ export function ComponentCatalog() {
     <div className="catalog-layout">
       <aside className="catalog-filters">
         <p className="eyebrow">Browse by detail</p>
-        <div role="group" aria-label="Component category">
+        <fieldset aria-label="Component category">
           {groups.map((name, index) => {
             const Icon = icons[index]
             return (
@@ -53,7 +53,7 @@ export function ComponentCatalog() {
               </button>
             )
           })}
-        </div>
+        </fieldset>
         <div className="catalog-help">
           <BookHint />
           <strong>A good place to start.</strong>

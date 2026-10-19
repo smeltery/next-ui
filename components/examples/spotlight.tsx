@@ -43,6 +43,7 @@ export const Spotlight = ({
   }
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: Pointer handlers only drive decorative effects; children provide semantic controls.
     <div
       ref={divRef}
       onMouseMove={handleMouseMove}

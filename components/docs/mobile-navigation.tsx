@@ -7,7 +7,7 @@ export function DocsMobileNavigation({
   dialogRef,
   close
 }: {
-  dialogRef: RefObject<HTMLDialogElement>
+  dialogRef: RefObject<HTMLDialogElement | null>
   close: () => void
 }) {
   const pathname = usePathname()

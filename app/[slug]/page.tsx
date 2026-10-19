@@ -7,22 +7,22 @@ import CodeBlock from "@/components/code-block"
 import { CopyButton } from "@/components/copy-button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 export function generateStaticParams() {
   return COMPONENTS_LIST.map(({ slug }) => ({ slug }))
 }
-export function generateMetadata({ params }: Props) {
-  const component = COMPONENTS_LIST.find((item) => item.slug === params.slug)
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
+  const component = COMPONENTS_LIST.find((item) => item.slug === slug)
   return {
     title: component?.name ?? "Component not found",
     description: component?.description
   }
 }
 export default async function ComponentPage({ params }: Props) {
-  const item = COMPONENTS_LIST.find(
-    (component) => component.slug === params.slug
-  )
+  const { slug } = await params
+  const item = COMPONENTS_LIST.find((component) => component.slug === slug)
   if (!item) notFound()
   const [source, usage] = await Promise.all([
     readFile(

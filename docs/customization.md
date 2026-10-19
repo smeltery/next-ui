@@ -25,7 +25,7 @@ Keep durations long enough to feel calm. Use `matchMedia` to substitute a static
 
 ## Tailwind configuration
 
-Merge the configuration from the component page into `theme.extend`. Keep your existing `content` globs and plugins. The example configuration targets Tailwind CSS 3 and is not a full replacement config.
+Merge the configuration from the component page into `theme.extend`. Load the config from your stylesheet with `@config "../tailwind.config.ts"` (adjust the relative path). Keep your existing plugins. The example configuration targets Tailwind CSS 4 and is not a full replacement config.
 
 ```mermaid
 flowchart TD

@@ -22,7 +22,7 @@ export function SearchDialog({
   dialogRef,
   close
 }: {
-  dialogRef: RefObject<HTMLDialogElement>
+  dialogRef: RefObject<HTMLDialogElement | null>
   close: () => void
 }) {
   const [query, setQuery] = useState("")
@@ -88,7 +88,7 @@ export function SearchDialog({
           }}
         />
       </div>
-      <div className="search-scopes" role="group" aria-label="Search within">
+      <fieldset className="search-scopes" aria-label="Search within">
         {["Everything", "Component", "Guide"].map((item) => (
           <button
             key={item}
@@ -99,7 +99,7 @@ export function SearchDialog({
             {item}
           </button>
         ))}
-      </div>
+      </fieldset>
       <div className="search-results-scroll">
         <nav
           aria-label="Search results"

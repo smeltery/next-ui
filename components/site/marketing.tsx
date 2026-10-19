@@ -116,7 +116,7 @@ const questions = [
   ],
   [
     "Is this only for Next.js?",
-    "The showcase uses Next.js, but the components are React and TypeScript with Tailwind CSS 3. Components that use browser interactions need to run on the client."
+    "The showcase uses Next.js, but the components are React and TypeScript with Tailwind CSS 4. Components that use browser interactions need to run on the client."
   ],
   [
     "Can I change the design?",
