@@ -129,3 +129,34 @@ test("320px reflow and reduced motion", async ({ page }) => {
     ).toBe(true)
   }
 })
+
+test("clipboard success and failure feedback", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"])
+  await page.goto("/spotlight")
+  await page.getByRole("button", { name: "Copy code" }).click()
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toContain("Spotlight")
+  await page.goto("/docs")
+  const copy = page
+    .getByRole("button", { name: "Copy as Markdown" })
+    .filter({ visible: true })
+  await copy.click()
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toContain("# Overview")
+  await page.evaluate(() => {
+    Object.defineProperty(navigator.clipboard, "writeText", {
+      value: () => Promise.reject(new Error("denied"))
+    })
+  })
+  await page
+    .getByRole("button", { name: "Markdown copied" })
+    .filter({ visible: true })
+    .click()
+  await expect(
+    page
+      .getByRole("textbox", { name: "Page Markdown" })
+      .filter({ visible: true })
+  ).toHaveValue(/# Overview/)
+})

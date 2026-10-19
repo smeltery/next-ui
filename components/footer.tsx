@@ -6,8 +6,8 @@ const groups = [
     title: "The library",
     links: [
       ["All components", "/#library"],
-      ["Borders & light", "/#library"],
-      ["Motion & backgrounds", "/#library"]
+      ["Borders & light", "/docs/components#borders-and-light"],
+      ["Motion & backgrounds", "/docs/components#motion-and-depth"]
     ]
   },
   {

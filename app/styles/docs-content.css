@@ -187,3 +187,34 @@
     display: none;
   }
 }
+
+.chat-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.action-chevron {
+  margin-left: auto;
+}
+.doc-actions textarea {
+  width: 100%;
+  min-height: 130px;
+  font: 11px var(--mono);
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.doc-actions details > p {
+  font-size: 10px;
+  margin: 12px 0;
+}
+.mobile-doc-actions {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .mobile-doc-actions {
+    display: block;
+    margin-bottom: 35px;
+  }
+}

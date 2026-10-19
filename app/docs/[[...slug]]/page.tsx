@@ -66,6 +66,9 @@ export default async function DocsPage({
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <Diagrams />
+        <div className="mobile-doc-actions">
+          <DocActions source={source} file={doc.file} title={doc.title} />
+        </div>
         {DOCS[index + 1] && (
           <Link className="doc-next" href={`/docs/${DOCS[index + 1].slug}`}>
             <span>Up next</span>
