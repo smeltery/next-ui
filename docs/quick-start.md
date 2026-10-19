@@ -25,9 +25,26 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
+## Add the shared types
+
+Several effects import `ExampleProps` or `SpotlightProps`. Create `types/type.ts`:
+
+```ts
+import type { ReactNode } from "react"
+
+export interface ExampleProps {
+  children?: ReactNode
+  className?: string
+}
+
+export interface SpotlightProps extends ExampleProps {
+  spotlightColor?: string
+}
+```
+
 ## Copy a component
 
-Open [Spotlight](/spotlight), try the preview, then copy the **Component** source to `components/examples/spotlight.tsx`. The **Usage** tab provides a working example. Preserve the `"use client"` directive when the implementation uses React hooks.
+Open [Spotlight](/spotlight), try the preview, then copy the **Component** source to `components/examples/spotlight.tsx`. The **Usage** tab provides the showcase example. It imports a local `CardItem` presentation helper; replace that helper with your own content, or copy it from the repository. Preserve the `"use client"` directive when the implementation uses React hooks.
 
 ```mermaid
 flowchart LR
@@ -36,6 +53,26 @@ flowchart LR
     C --> D[Add required styles]
     D --> E[Test in your application]
 ```
+
+A minimal Spotlight composition does not need the showcase helper:
+
+```tsx
+import { Spotlight } from "@/components/examples/spotlight"
+
+export function FeatureCard() {
+  return (
+    <Spotlight
+      className="h-52 w-64 bg-stone-950 p-6 text-white"
+      spotlightColor="rgba(180, 210, 140, 0.18)"
+    >
+      <h2>A detail worth noticing</h2>
+      <p>Your content stays readable without the effect.</p>
+    </Spotlight>
+  )
+}
+```
+
+Some showcase usage files use the convenience aliases `@/examples`, `@/icons`, or `@/card-item`. Update them to match your own file locations. The library does not assume these aliases exist in your app.
 
 ## Include the styles
 

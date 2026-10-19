@@ -1,20 +1,17 @@
 import type { Highlighter, Lang, Theme } from "shiki"
 import { getHighlighter, renderToHtml } from "shiki"
 
-let highlighter: Highlighter
+let highlighter: Promise<Highlighter> | undefined
 
 export async function highlight(code: string, theme: Theme, lang: Lang) {
-  if (!highlighter) {
-    highlighter = await getHighlighter({
-      langs: [lang],
-      theme: theme
-    })
+  // Share initialization across concurrent static pages and register both source formats.
+  highlighter ??= getHighlighter({ langs: ["tsx", "json"], theme })
+  const instance = await highlighter
+  if (!instance.getLoadedLanguages().includes(lang)) {
+    await instance.loadLanguage(lang)
   }
-
-  const tokens = highlighter.codeToThemedTokens(code, lang, theme, {
+  const tokens = instance.codeToThemedTokens(code, lang, theme, {
     includeExplanation: false
   })
-  const html = renderToHtml(tokens, { bg: "transparent" })
-
-  return html
+  return renderToHtml(tokens, { bg: "transparent" })
 }

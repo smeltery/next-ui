@@ -4,7 +4,7 @@ Keep changes focused and source easy to read. Start with [local development](dev
 
 ## Shared checks
 
-`bun run check` runs formatting, linting, TypeScript, Markdown validation, Mermaid parsing, local documentation links, and source-size budgets. It does not rewrite files. Use `bun run format` to apply formatting before checking.
+`bun run check` runs formatting, linting, TypeScript, Markdown validation, Mermaid parsing, local documentation links, source-size budgets, and focused regression tests. It does not rewrite files. Use `bun run format` to apply formatting before checking.
 
 ```mermaid
 flowchart LR
