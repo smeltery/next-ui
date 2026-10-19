@@ -1,0 +1,148 @@
+.hero-product {
+  min-width: 0;
+}
+.hero-product-label {
+  display: flex;
+  justify-content: space-between;
+  font: 9px var(--mono);
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.hero-live-card {
+  display: block;
+  border: 1px solid #555;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero-live-card:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.hero-spotlight {
+  min-height: 280px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #111;
+}
+.hero-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/brand/dither.svg") right center / 80% no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.hero-spotlight > span,
+.hero-spotlight > strong {
+  position: relative;
+  z-index: 1;
+}
+.hero-demo-tag {
+  font: 10px var(--mono);
+  color: #b5b5b5;
+}
+.hero-spotlight strong {
+  margin-top: 30px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.hero-spotlight em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.hero-demo-caption {
+  font-size: 11px;
+  color: #b5b5b5;
+  margin-top: 14px;
+}
+.hero-demo-link {
+  font-size: 11px;
+  margin-top: 28px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hero-more-effects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.hero-more-effects > a {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+.hero-more-effects > a:hover {
+  border-color: #888;
+}
+.hero-more-effects > a > span {
+  display: block;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.hero-more-effects small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.hero-border-art,
+.hero-grid-art {
+  height: 78px;
+  display: grid;
+  place-items: center;
+  background: #111;
+  font: italic 15px var(--serif);
+}
+.hero-border-art span {
+  border: 1px solid #777;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 -2px 12px #ffffff25;
+}
+.hero-grid-art {
+  background-image:
+    linear-gradient(#ffffff12 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff12 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.hero-product-note {
+  font-size: 10px;
+  margin-top: 16px;
+  text-align: center;
+}
+@media (max-width: 780px) {
+  .home-hero {
+    padding-top: 36px;
+    gap: 36px;
+  }
+  .home-hero h1 {
+    font-size: clamp(36px, 9vw, 48px);
+    margin-block: 20px;
+  }
+  .home-hero .lead {
+    font-size: 15px;
+  }
+  .home-hero .hero-actions {
+    gap: 18px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .home-hero .hero-meta {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  .hero-spotlight {
+    min-height: 260px;
+    padding: 24px;
+  }
+}
+@media (hover: none) {
+  .hero-demo-caption {
+    display: none;
+  }
+}

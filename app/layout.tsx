@@ -5,7 +5,7 @@ import "@fontsource-variable/dm-sans"
 import "./globals.css"
 export const metadata: Metadata = {
   title: {
-    default: "Next UI — Small details. Better interfaces.",
+    default: "Next UI — Copy-and-paste React components",
     template: "%s · Next UI"
   },
   description:
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         : "https://next-ui-orcin-chi.vercel.app")
   ),
   openGraph: {
-    title: "Next UI — Small details. Better interfaces.",
+    title: "Next UI — Copy-and-paste React components",
     images: [
       {
         url: "/brand/og.png",

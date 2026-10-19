@@ -5,13 +5,16 @@ import { DOCS } from "../data/docs"
 test("catalog filters, empty state, and component source", async ({ page }) => {
   await page.goto("/")
   await expect(
-    page.getByRole("heading", { name: "Small details. Better interfaces." })
+    page.getByRole("heading", { name: "Better React UI. Copy. Paste. Ship." })
   ).toBeVisible()
+  await expect(
+    page.getByRole("link", { name: "Explore 9 components", exact: true })
+  ).toBeInViewport()
   await expect(
     page.getByRole("searchbox", { name: "Search components" })
   ).toHaveCount(0)
   await page
-    .getByRole("link", { name: "Explore the components", exact: true })
+    .getByRole("link", { name: "Explore 9 components", exact: true })
     .click()
   await expect(page).toHaveURL(/\/components$/)
   await page.getByRole("button", { name: "Borders & light" }).click()

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { HeroPreview } from "@/components/site/hero-preview"
 import { MarketingSections, MarketingClose } from "@/components/site/marketing"
 export default function Home() {
   return (
@@ -6,73 +7,33 @@ export default function Home() {
       <section className="wrap home-hero">
         <div>
           <p className="eyebrow">
-            <span className="status-dot" />A small library for thoughtful
-            builders
+            <span className="status-dot" />
+            Copy-and-paste React components
           </p>
           <h1>
-            Small details.
+            Better React UI.
             <br />
-            <em>Better interfaces.</em>
+            <em>Copy. Paste. Ship.</em>
           </h1>
           <p className="lead">
-            A little motion. A softer glow. That just-right interaction.
-            <br className="desktop-break" /> React components you can copy, make
-            your own, and ship.
+            Spotlights, animated borders, and backgrounds—ready to copy into
+            your app. Pick an effect, take the React code, and make it yours.
           </p>
           <div className="hero-actions">
             <Link href="/components" className="button">
-              Explore the components
+              Explore 9 components
             </Link>
             <Link href="/docs/quick-start" className="text-link">
-              Get started
+              How to use them
             </Link>
           </div>
           <div className="hero-meta">
-            <span>React + TypeScript</span>
-            <span>Tailwind CSS</span>
-            <span>Your code to customize</span>
+            <span>Editable source</span>
+            <span>React + Tailwind CSS</span>
+            <span>No UI package</span>
           </div>
         </div>
-        <div
-          className="hero-specimen"
-          aria-label="A dithered N monogram: light, motion, and detail"
-        >
-          <div className="specimen-top">
-            <span>FIG. 001 — THE INTERFACE STUDY</span>
-            <span>1 BIT / ∞ POSSIBILITIES</span>
-          </div>
-          <img
-            className="dither-mark"
-            src="/brand/dither.svg"
-            width="600"
-            height="540"
-            alt=""
-          />
-          <span className="specimen-cross cross-top" aria-hidden="true">
-            +
-          </span>
-          <span className="specimen-cross cross-bottom" aria-hidden="true">
-            +
-          </span>
-          <div className="specimen-caption">
-            <span>
-              01 LIGHT
-              <br />
-              02 MOTION
-              <br />
-              03 DETAIL
-            </span>
-            <strong>
-              Less noise.
-              <br />
-              <em>More feeling.</em>
-            </strong>
-          </div>
-          <div className="specimen-bottom">
-            <span>RAW MATERIAL FOR YOUR NEXT IDEA</span>
-            <span>next-ui / 001</span>
-          </div>
-        </div>
+        <HeroPreview />
       </section>
       <div className="wrap value-strip">
         <span>Built with the tools you already use.</span>
