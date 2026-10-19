@@ -6,7 +6,7 @@ Small details can change how an interface feels. Next UI is a collection of nine
 
 Choose a component, try its interaction, and copy its implementation. You keep the source in your application and adapt it to your design. There is no Next UI runtime package or hosted service to depend on.
 
-The examples use React, TypeScript, Tailwind CSS 3, and, where needed, Framer Motion. The showcase runs on Next.js. The components can also live in another React application with the same dependencies.
+The examples use React, TypeScript, Tailwind CSS 3. The showcase runs on Next.js. The components can also live in another React application with the same dependencies.
 
 ## How it works
 

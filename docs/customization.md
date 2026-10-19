@@ -12,7 +12,7 @@ Place the effect inside a positioned container with an explicit size. Use `overf
 
 ## Animation
 
-Keep durations long enough to feel calm. Framer Motion components can use its reduced-motion hook to substitute a static state. CSS animations should include a `prefers-reduced-motion: reduce` override.
+Keep durations long enough to feel calm. Use `matchMedia` to substitute a static state for pointer-driven transforms. CSS animations should include a `prefers-reduced-motion: reduce` override.
 
 ```css
 @media (prefers-reduced-motion: reduce) {

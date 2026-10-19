@@ -7,10 +7,10 @@ Bring a component into an existing React application. The examples target Tailwi
 Start with React 18 or later, TypeScript, and a working Tailwind CSS 3 build. Install the utilities used by the examples:
 
 ```sh
-bun add clsx tailwind-merge framer-motion
+bun add clsx tailwind-merge
 ```
 
-If your chosen component does not import Framer Motion, you can omit it. These are application dependencies; you do not install a `next-ui` package.
+These are application dependencies; you do not install a `next-ui` package.
 
 ## Add the class utility
 

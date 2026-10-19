@@ -6,7 +6,7 @@ Next UI is distributed under [PolyForm Shield 1.0.0](../LICENSE). The license in
 
 ## Tools and assets
 
-The showcase uses Next.js, React, Tailwind CSS, Framer Motion, Radix UI, Shiki, and Lucide. Documentation rendering uses Marked and Mermaid. Their licenses remain with their respective projects.
+The showcase uses Next.js, React, Tailwind CSS, Radix UI, Shiki, and Lucide. Documentation rendering uses Marked and Mermaid. Their licenses remain with their respective projects.
 
 Technology logos come from [Simple Icons](https://simpleicons.org). DM Sans is distributed under the SIL Open Font License through Fontsource. The Next UI monogram and social illustration are project assets.
 

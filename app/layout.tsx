@@ -1,14 +1,8 @@
 import type { Metadata } from "next"
-import localFont from "next/font/local"
 import { Navbar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import "@fontsource-variable/dm-sans"
 import "./globals.css"
-const sans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900"
-})
 export const metadata: Metadata = {
   title: {
     default: "Next UI — Small details. Better interfaces.",
@@ -51,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body id="top" className={sans.variable}>
+      <body id="top">
         <a className="skip" href="#main">
           Skip to content
         </a>
