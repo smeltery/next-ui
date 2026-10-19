@@ -1,6 +1,4 @@
-# Next UI
-
-<p align="center"><img src="public/brand/mark.svg" width="64" alt="Next UI logo"></p>
+# <img src="public/brand/mark.svg" width="40" height="40" align="absmiddle" alt=""> Next UI
 
 Small details. Better interfaces. Nine copy-paste React components with live previews, TypeScript source, and examples you can make your own.
 
