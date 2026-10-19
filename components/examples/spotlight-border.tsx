@@ -43,6 +43,7 @@ export const SpotlightBorder = ({
   }
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: Pointer handlers only drive decorative effects; children provide semantic controls.
     <div
       className={cn(
         "bg-background relative size-full overflow-hidden rounded-xl",

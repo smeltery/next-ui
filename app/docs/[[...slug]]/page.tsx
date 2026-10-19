@@ -9,8 +9,13 @@ import { Diagrams } from "@/components/docs/diagrams"
 export function generateStaticParams() {
   return DOCS.map((doc) => ({ slug: doc.slug ? doc.slug.split("/") : [] }))
 }
-export function generateMetadata({ params }: { params: { slug?: string[] } }) {
-  const doc = DOCS.find((item) => item.slug === (params.slug?.join("/") || ""))
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ slug?: string[] }>
+}) {
+  const { slug } = await params
+  const doc = DOCS.find((item) => item.slug === (slug?.join("/") || ""))
   return {
     title: doc?.title ?? "Page not found",
     description: doc?.description
@@ -19,9 +24,10 @@ export function generateMetadata({ params }: { params: { slug?: string[] } }) {
 export default async function DocsPage({
   params
 }: {
-  params: { slug?: string[] }
+  params: Promise<{ slug?: string[] }>
 }) {
-  const doc = DOCS.find((item) => item.slug === (params.slug?.join("/") || ""))
+  const { slug } = await params
+  const doc = DOCS.find((item) => item.slug === (slug?.join("/") || ""))
   if (!doc) notFound()
   const { source, html, headings } = await readDoc(doc)
   const index = DOCS.indexOf(doc)

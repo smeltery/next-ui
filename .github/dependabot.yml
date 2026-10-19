@@ -9,5 +9,7 @@ updates:
     schedule:
       interval: weekly
     groups:
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
       development:
         dependency-type: development

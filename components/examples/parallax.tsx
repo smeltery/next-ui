@@ -47,6 +47,7 @@ export const Parallax = ({ className, children }: ExampleProps) => {
   }
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: Pointer handlers only drive decorative effects; children provide semantic controls.
     <div
       className={cn(
         "relative size-full rounded-xl transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform",

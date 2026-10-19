@@ -5,6 +5,5 @@ module.exports = (phase) => ({
   async redirects() {
     return [{ source: "/docs/brand", destination: "/brand", permanent: true }]
   },
-  eslint: { ignoreDuringBuilds: true },
   distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next"
 })

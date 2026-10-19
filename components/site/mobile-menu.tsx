@@ -19,7 +19,7 @@ export function MobileMenu({
   close,
   openSearch
 }: {
-  dialogRef: RefObject<HTMLDialogElement>
+  dialogRef: RefObject<HTMLDialogElement | null>
   close: () => void
   openSearch: () => void
 }) {
