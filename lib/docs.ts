@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { marked } from "marked"
+import type { Lang } from "shiki"
+import { highlight } from "./shiki"
 import { DOCS } from "@/data/docs"
 export function headingId(text: string) {
   return text
@@ -33,5 +35,22 @@ export async function readDoc(doc: (typeof DOCS)[number]) {
     /<h2>(.*?)<\/h2>/g,
     (_, title: string) => `<h2 id="${headingId(title)}">${title}</h2>`
   )
+  const blocks = [
+    ...html.matchAll(
+      /<pre tabindex="0"><code class="language-(tsx|ts|typescript|sh|bash|json)">([\s\S]*?)<\/code><\/pre>/g
+    )
+  ]
+  for (const block of blocks) {
+    const code = block[2].replace(
+      /&(lt|gt|quot|#39|amp);/g,
+      (_, entity: string) =>
+        ({ lt: "<", gt: ">", quot: '\"', "#39": "'", amp: "&" })[entity] || ""
+    )
+    const language = (block[1] === "sh" ? "bash" : block[1]) as Lang
+    const rendered = (await highlight(code, "github-dark", language))
+      .replace("<pre", '<pre tabindex="0"')
+      .replace("<code>", `<code class="language-${block[1]}">`)
+    html = html.replace(block[0], rendered)
+  }
   return { source, html, headings }
 }

@@ -3,6 +3,8 @@ import Link from "next/link"
 import { DOCS } from "@/data/docs"
 import { readDoc } from "@/lib/docs"
 import { DocActions } from "@/components/docs/doc-actions"
+import { DocsNavigation } from "@/components/docs/navigation"
+import { CodeTools } from "@/components/docs/code-tools"
 import { Diagrams } from "@/components/docs/diagrams"
 export function generateStaticParams() {
   return DOCS.map((doc) => ({ slug: doc.slug ? doc.slug.split("/") : [] }))
@@ -26,30 +28,9 @@ export default async function DocsPage({
   return (
     <div className="docs-layout">
       <aside className="docs-sidebar">
-        <nav aria-label="Documentation pages">
-          <Link href="/#library">Component library</Link>
-          {["Start here", "Guides", "Project", "Resources"].map((group) => (
-            <div className="docs-nav-group" key={group}>
-              <p>{group}</p>
-              {DOCS.filter((item) => item.group === group).map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/docs/${item.slug}`}
-                  aria-current={doc.slug === item.slug ? "page" : undefined}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          ))}
-        </nav>
+        <DocsNavigation slug={doc.slug} />
       </aside>
       <article className="docs-main">
-        <header className="doc-article-heading">
-          <p className="eyebrow">{doc.group}</p>
-          <h1>{doc.title}</h1>
-          <p className="docs-lead">{doc.description}</p>
-        </header>
         <details className="mobile-toc">
           <summary>On this page</summary>
           <nav>
@@ -60,12 +41,53 @@ export default async function DocsPage({
             ))}
           </nav>
         </details>
+        <header
+          className={
+            doc.slug === "api" || doc.slug === ""
+              ? "doc-api-heading"
+              : "doc-article-heading"
+          }
+        >
+          <p className="eyebrow">
+            {doc.slug === "api" || doc.slug === ""
+              ? "Developer documentation"
+              : doc.group}
+          </p>
+          {doc.slug === "api" || doc.slug === "" ? (
+            <h1>
+              Small components.
+              <br />
+              <em>Possibilities open.</em>
+            </h1>
+          ) : (
+            <h1>{doc.title}</h1>
+          )}
+          <p className="docs-lead">{doc.description}</p>
+          {(doc.slug === "api" || doc.slug === "") && (
+            <>
+              <div className="docs-notice">
+                Source you can read and adapt. Components run in your
+                application; no hosted service or component package is required.
+              </div>
+              <div className="docs-base">
+                <span>React + TypeScript · source directory</span>
+                <code>components/examples/</code>
+              </div>
+              <p className="docs-flow">
+                <Link href="/components">Find a component</Link>,{" "}
+                <Link href="/docs/quick-start">copy its source</Link>, then{" "}
+                <Link href="/docs/customization">make it your own</Link>.
+              </p>
+            </>
+          )}
+        </header>
         <div
           className="doc-content"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML comes only from reviewed local source and trusted rendering.
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <Diagrams />
+        <CodeTools />
         <div className="mobile-doc-actions">
           <DocActions source={source} file={doc.file} title={doc.title} />
         </div>
@@ -75,6 +97,12 @@ export default async function DocsPage({
             {DOCS[index + 1].title}
           </Link>
         )}
+        <footer className="docs-footer">
+          <Link href="/">Next UI home</Link>
+          <a href="https://github.com/smeltery/next-ui/tree/master/docs">
+            View documentation source
+          </a>
+        </footer>
       </article>
       <aside className="docs-toc">
         <p className="eyebrow">On this page</p>

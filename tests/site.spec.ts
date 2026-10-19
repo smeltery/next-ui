@@ -7,6 +7,13 @@ test("catalog filters, empty state, and component source", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Small details. Better interfaces." })
   ).toBeVisible()
+  await expect(
+    page.getByRole("searchbox", { name: "Search components" })
+  ).toHaveCount(0)
+  await page
+    .getByRole("link", { name: "Explore the components", exact: true })
+    .click()
+  await expect(page).toHaveURL(/\/components$/)
   await page.getByRole("button", { name: "Borders & light" }).click()
   await expect(page.locator(".component-card")).toHaveCount(5)
   await page
@@ -89,7 +96,10 @@ test("docs render Mermaid, navigate, and keep working local links", async ({
 }) => {
   await page.goto("/docs")
   await expect(
-    page.getByRole("heading", { name: "Overview", exact: true })
+    page.getByRole("heading", {
+      name: "Small components. Possibilities open.",
+      exact: true
+    })
   ).toBeVisible()
   await page
     .getByRole("heading", { name: "How it works", exact: true })
@@ -106,7 +116,7 @@ test("docs render Mermaid, navigate, and keep working local links", async ({
   }
 })
 
-for (const route of ["/", "/docs", "/spotlight"]) {
+for (const route of ["/", "/components", "/docs", "/docs/api", "/spotlight"]) {
   test(`accessible and no overflow: ${route}`, async ({ page }) => {
     await page.goto(route)
     const results = await new AxeBuilder({ page })
@@ -124,7 +134,13 @@ for (const route of ["/", "/docs", "/spotlight"]) {
 test("320px reflow and reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 })
   await page.emulateMedia({ reducedMotion: "reduce" })
-  for (const route of ["/", "/docs/quick-start", "/dynamic-grid-pattern"]) {
+  for (const route of [
+    "/",
+    "/components",
+    "/docs/api",
+    "/docs/quick-start",
+    "/dynamic-grid-pattern"
+  ]) {
     await page.goto(route)
     expect(
       await page.evaluate(
@@ -163,4 +179,47 @@ test("clipboard success and failure feedback", async ({ page, context }) => {
       .getByRole("textbox", { name: "Page Markdown" })
       .filter({ visible: true })
   ).toHaveValue(/# Overview/)
+})
+
+test("marketing FAQ and closing CTA lead to the catalog", async ({ page }) => {
+  await page.goto("/")
+  await page
+    .locator(".marketing-faq summary")
+    .filter({ hasText: "Do I need to install a component package?" })
+    .click()
+  await expect(page.locator(".marketing-faq details[open]")).toContainText(
+    "Copy the source"
+  )
+  await page.getByRole("link", { name: "Find your first component" }).click()
+  await expect(page).toHaveURL(/\/components$/)
+})
+
+test("documentation drawer and code-copy work", async ({
+  page,
+  isMobile,
+  context
+}) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"])
+  await page.goto("/docs/api")
+  if (isMobile) {
+    await page.getByRole("button", { name: "Menu", exact: true }).click()
+    const drawer = page.getByRole("dialog", {
+      name: "Documentation navigation"
+    })
+    await expect(drawer).toBeVisible()
+    await page.keyboard.press("Escape")
+    await expect(drawer).not.toBeVisible()
+    await expect(
+      page.getByRole("button", { name: "Menu", exact: true })
+    ).toBeFocused()
+    await page.getByRole("button", { name: "Menu", exact: true }).click()
+    await drawer.getByRole("link", { name: "Quick start", exact: true }).click()
+    await expect(page).toHaveURL(/docs\/quick-start/)
+    await expect(drawer).not.toBeVisible()
+    await page.goto("/docs/api")
+  }
+  await page.getByRole("button", { name: "Copy code example" }).first().click()
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toContain("spotlightColor")
 })

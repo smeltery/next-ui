@@ -1,0 +1,250 @@
+.docs-header .desktop-nav a {
+  padding: 0;
+  font-size: 12px;
+}
+.docs-header .header-search-trigger {
+  border-radius: 8px;
+  height: 38px;
+  font-size: 11px;
+  padding: 8px 12px;
+}
+.docs-header .github-link {
+  font-size: 12px;
+}
+.docs-header .brand {
+  font-size: 23px;
+}
+.docs-header .brand img {
+  width: 25px;
+  height: 25px;
+}
+.docs-header .desktop-nav {
+  gap: 24px;
+}
+.doc-api-heading {
+  margin-bottom: 44px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+}
+.doc-api-heading > .eyebrow {
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.doc-api-heading h1 {
+  font-size: clamp(40px, 5vw, 62px);
+}
+.doc-api-heading .docs-lead {
+  margin-top: 26px;
+}
+.doc-api-heading .docs-flow {
+  margin-top: 20px;
+  font-size: 13px;
+}
+.docs-flow a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.docs-toc nav {
+  gap: 16px;
+  padding-top: 20px;
+}
+.docs-toc nav a {
+  font-size: 11px;
+}
+.doc-actions {
+  margin-top: 28px;
+  padding-top: 16px;
+  display: grid;
+  gap: 4px;
+}
+.doc-actions > a,
+.doc-actions > button,
+.doc-actions summary {
+  font-size: 12px;
+  gap: 9px;
+  min-height: 39px;
+  padding: 10px 0;
+}
+.doc-actions summary {
+  list-style: none;
+}
+.doc-actions summary::-webkit-details-marker {
+  display: none;
+}
+.chat-links {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  gap: 2px;
+  padding: 6px 10px;
+}
+.doc-actions details[open] .action-chevron {
+  transform: rotate(180deg);
+}
+.docs-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+  padding: 24px 0 36px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.docs-code-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px 12px 0 0;
+  background: #151515;
+  margin-top: 24px;
+  font: 11px var(--mono);
+  color: var(--muted);
+}
+.docs-code-heading button {
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 5px;
+  font-size: 10px;
+}
+.doc-content pre.with-toolbar {
+  margin-top: 0;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+}
+.docs-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  margin: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(290px, 85vw);
+  max-width: 85vw;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  border: 0;
+  border-right: 1px solid var(--line);
+}
+.docs-drawer::backdrop {
+  background: #0009;
+}
+.docs-drawer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.docs-drawer-heading button {
+  background: transparent;
+  padding: 8px;
+}
+.docs-drawer .docs-sidebar {
+  display: block;
+  position: static;
+  height: calc(100dvh - 66px);
+  padding: 20px 16px;
+  border: 0;
+}
+.docs-drawer .docs-sidebar nav {
+  display: grid;
+  overflow: visible;
+}
+.docs-drawer .docs-sidebar p {
+  display: block;
+}
+.docs-drawer .docs-sidebar nav a {
+  display: block;
+  white-space: normal;
+}
+.docs-sidebar .docs-home {
+  margin-top: 28px;
+}
+@media (max-width: 780px) {
+  .docs-header .menu-toggle {
+    order: -1;
+    margin: 0;
+    padding: 8px;
+  }
+  .docs-header .brand-org,
+  .docs-header .brand-divider {
+    display: none;
+  }
+  .docs-header .brand-sub {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .docs-header .brand {
+    font-size: 18px;
+    gap: 8px;
+  }
+  .docs-header .header-search-trigger {
+    margin-left: auto;
+    padding: 8px;
+  }
+  .docs-header .header-search-trigger span,
+  .docs-header .header-search-trigger kbd {
+    display: none;
+  }
+  .docs-header .github-link {
+    display: flex;
+    margin-left: auto;
+  }
+  .docs-header .github-link span {
+    display: inline;
+  }
+  .docs-header-inner {
+    gap: 12px;
+  }
+  .docs-layout {
+    display: block;
+  }
+  .docs-layout > .docs-sidebar {
+    display: none;
+  }
+  .docs-main {
+    padding: 36px 20px 0;
+  }
+  .mobile-toc {
+    display: block;
+  }
+  .doc-api-heading {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+  .docs-footer {
+    flex-wrap: wrap;
+  }
+}
+
+.doc-content pre code {
+  counter-reset: code-line;
+}
+.doc-content pre .line {
+  display: inline;
+}
+.doc-content pre .line::before {
+  counter-increment: code-line;
+  content: counter(code-line);
+  display: inline-block;
+  width: 28px;
+  padding-right: 14px;
+  color: #888;
+  text-align: right;
+  user-select: none;
+}
+
+@media (max-width: 350px) {
+  .docs-header .github-link span {
+    display: none;
+  }
+}

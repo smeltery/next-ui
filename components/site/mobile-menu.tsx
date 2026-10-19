@@ -65,7 +65,7 @@ export function MobileMenu({
             if ((event.target as HTMLElement).closest("a")) close()
           }}
         >
-          <Link className="mobile-feature-card" href="/#library">
+          <Link className="mobile-feature-card" href="/components">
             <span className="nav-card-icon">
               <LayoutGrid />
             </span>

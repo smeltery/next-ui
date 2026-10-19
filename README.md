@@ -29,6 +29,8 @@ bun run dev
 
 Open `http://localhost:3000`. Run `bun run check` for shared validation and `bun run verify` for a production build plus browser tests. Install Chromium once with `bunx playwright install chromium`.
 
+[Explore the components](https://next-ui-orcin-chi.vercel.app/components) · [Component API](docs/api.md)
+
 ## Documentation
 
 Start in [docs/](docs/index.md): [quick start](docs/quick-start.md), [components](docs/components.md), [customization](docs/customization.md), and [accessibility](docs/accessibility.md).

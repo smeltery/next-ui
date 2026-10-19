@@ -1,3 +1,5 @@
+"use client"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Github } from "lucide-react"
 import { Brand } from "./site/brand"
@@ -5,7 +7,7 @@ const groups = [
   {
     title: "The library",
     links: [
-      ["All components", "/#library"],
+      ["All components", "/components"],
       ["Borders & light", "/docs/components#borders-and-light"],
       ["Motion & backgrounds", "/docs/components#motion-and-depth"]
     ]
@@ -33,6 +35,8 @@ const groups = [
   }
 ]
 export function Footer() {
+  const pathname = usePathname()
+  if (pathname.startsWith("/docs")) return null
   return (
     <footer className="site-footer">
       <div className="wrap">

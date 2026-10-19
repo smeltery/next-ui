@@ -38,6 +38,7 @@ for (const file of files) {
       target.startsWith("/") &&
       (target === "/" ||
         target === "/docs" ||
+        target === "/components" ||
         DOCS.some((doc) => `/docs/${doc.slug}` === target) ||
         existsSync(`components/examples/${target.slice(1)}.tsx`))
     if (!route && !existsSync(local))

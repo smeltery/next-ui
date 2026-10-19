@@ -1,5 +1,13 @@
 export const DOCS = [
   {
+    slug: "api",
+    title: "Component API",
+    group: "Reference",
+    file: "api.md",
+    description:
+      "Bring light, motion, and detail to your React application. Copy the source, pass your content, and make it yours."
+  },
+  {
     slug: "",
     title: "Overview",
     group: "Start here",

@@ -2,6 +2,8 @@
 
 Small details can change how an interface feels. Next UI is a collection of nine interactive React components, with live previews and source you can bring into your own project.
 
+Start with the [component library](/components), the [quick start](quick-start.md), or the [component API](api.md).
+
 ## Build with code you can see
 
 Choose a component, try its interaction, and copy its implementation. You keep the source in your application and adapt it to your design. There is no Next UI runtime package or hosted service to depend on.

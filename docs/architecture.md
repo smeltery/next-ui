@@ -1,12 +1,12 @@
 # Architecture
 
-The showcase uses the Next.js App Router. Static content stays on the server; search, filters, demos, and copy controls run in client components.
+The marketing homepage, component browser at `/components`, and documentation at `/docs` use the Next.js App Router. Static content stays on the server; search, filters, demos, and copy controls run in client components.
 
 ## Content flow
 
 ```mermaid
 flowchart TD
-    Registry[data/component-list.ts] --> Catalog[Homepage catalog]
+    Registry[data/component-list.ts] --> Catalog[Components page]
     Registry --> Detail[Component detail route]
     Examples[components/examples] --> Detail
     Demos[components/demos] --> Catalog
@@ -30,7 +30,7 @@ flowchart TD
 
 ## Single documentation source
 
-The docs route reads the Markdown files at build time. Relative Markdown links become website routes. Headings supply the page outline. Mermaid diagrams load only when a diagram enters the viewport; the source remains readable if rendering fails.
+The docs route reads the Markdown files at build time. Relative Markdown links become website routes. Headings supply the page outline. Code examples are highlighted at build time and expose a copy control in the browser. The component API lives at `/docs/api`. Mermaid diagrams load only when a diagram enters the viewport; the source remains readable if rendering fails.
 
 ## Release boundary
 

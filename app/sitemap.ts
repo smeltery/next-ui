@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (!origin) return []
   return [
     "/",
+    "/components",
     ...COMPONENTS_LIST.map((item) => `/${item.slug}`),
     ...DOCS.map((item) => `/docs/${item.slug}`)
   ].map((route) => ({ url: new URL(route, origin).href }))

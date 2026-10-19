@@ -36,7 +36,7 @@ export default async function ComponentPage({ params }: Props) {
   ])
   return (
     <div className="wrap component-page">
-      <Link href="/#library" className="back-link">
+      <Link href="/components" className="back-link">
         ← All components
       </Link>
       <h1>{item.name}</h1>

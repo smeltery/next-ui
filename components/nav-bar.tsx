@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Github, Menu, Search } from "lucide-react"
 import { Brand } from "./site/brand"
+import { DocsMobileNavigation } from "./docs/mobile-navigation"
 import { MobileMenu } from "./site/mobile-menu"
 import { SearchDialog } from "./site/search-dialog"
 
@@ -48,11 +49,11 @@ export function Navbar() {
           <nav className="desktop-nav" aria-label="Main navigation">
             {(docs
               ? [
-                  ["Components", "/#library"],
-                  ["Quick start", "/docs/quick-start"]
+                  ["API reference", "/docs/api"],
+                  ["Examples", "/components"]
                 ]
               : [
-                  ["Explore components", "/#library"],
+                  ["Explore components", "/components"],
                   ["Getting started", "/docs/quick-start"],
                   ["Our approach", "/docs/approach"]
                 ]
@@ -78,7 +79,11 @@ export function Navbar() {
             <span>{docs ? "Search docs" : "Search"}</span>
             <kbd>⌘ K</kbd>
           </button>
-          <a className="github-link" href="https://github.com/smeltery/next-ui">
+          <a
+            className="github-link"
+            aria-label="GitHub repository"
+            href="https://github.com/smeltery/next-ui"
+          >
             <Github size={16} />
             <span>GitHub</span>
           </a>
@@ -93,11 +98,16 @@ export function Navbar() {
               document.documentElement.style.overflow = "hidden"
             }}
           >
-            Menu <Menu size={18} />
+            {docs ? <span className="sr-only">Menu</span> : "Menu"}{" "}
+            <Menu size={18} />
           </button>
         </div>
       </header>
-      <MobileMenu dialogRef={menu} close={close} openSearch={openSearch} />
+      {docs ? (
+        <DocsMobileNavigation dialogRef={menu} close={close} />
+      ) : (
+        <MobileMenu dialogRef={menu} close={close} openSearch={openSearch} />
+      )}
       <SearchDialog dialogRef={search} close={close} />
     </>
   )

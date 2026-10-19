@@ -4,7 +4,10 @@ export function Brand() {
     <Link href="/" className="brand" aria-label="Next UI home">
       <img src="/brand/mark.svg" width="32" height="32" alt="" />
       <span>
-        smeltery<span className="brand-sub"> / next-ui</span>
+        <span className="brand-org">smeltery</span>
+        <span className="brand-sub">
+          <span className="brand-divider"> / </span>next-ui
+        </span>
       </span>
     </Link>
   )

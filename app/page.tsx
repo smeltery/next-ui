@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ComponentCatalog } from "@/components/site/component-catalog"
+import { MarketingSections, MarketingClose } from "@/components/site/marketing"
 export default function Home() {
   return (
     <>
@@ -20,7 +20,7 @@ export default function Home() {
             your own, and ship.
           </p>
           <div className="hero-actions">
-            <Link href="#library" className="button">
+            <Link href="/components" className="button">
               Explore the components
             </Link>
             <Link href="/docs/quick-start" className="text-link">
@@ -93,24 +93,7 @@ export default function Home() {
           Next.js
         </div>
       </div>
-      <section className="wrap library-section" id="library">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">The component collection</p>
-            <h2>
-              A small change.
-              <br />
-              <em>A different feeling.</em>
-            </h2>
-          </div>
-          <p>
-            Preview it. Copy the source. Make it yours.
-            <br />
-            No package to install. No design system to replace.
-          </p>
-        </div>
-        <ComponentCatalog />
-      </section>
+      <MarketingSections />
       <section className="getting-started-band">
         <div className="wrap">
           <div>
@@ -154,6 +137,7 @@ export default function Home() {
           </ol>
         </div>
       </section>
+      <MarketingClose />
     </>
   )
 }
