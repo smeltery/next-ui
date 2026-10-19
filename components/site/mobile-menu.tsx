@@ -1,10 +1,10 @@
 "use client"
 import type { RefObject } from "react"
 import Link from "next/link"
+import { Icons } from "@/components/icons"
 import {
   BookOpen,
   Compass,
-  Github,
   LayoutGrid,
   Layers,
   Search,
@@ -142,7 +142,7 @@ export function MobileMenu({
       </div>
       <div className="mobile-panel-footer">
         <a href="https://github.com/smeltery/next-ui" className="icon-link">
-          <Github size={18} />
+          <Icons.github style={{ width: 18, height: 18 }} />
           GitHub
         </a>
         <a href="https://github.com/smeltery/next-ui/issues">

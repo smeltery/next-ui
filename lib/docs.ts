@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { marked } from "marked"
-import type { Lang } from "shiki"
+import type { BundledLanguage } from "shiki"
 import { highlight } from "./shiki"
 import { DOCS } from "@/data/docs"
 export function headingId(text: string) {
@@ -46,10 +46,11 @@ export async function readDoc(doc: (typeof DOCS)[number]) {
       (_, entity: string) =>
         ({ lt: "<", gt: ">", quot: '\"', "#39": "'", amp: "&" })[entity] || ""
     )
-    const language = (block[1] === "sh" ? "bash" : block[1]) as Lang
-    const rendered = (await highlight(code, "github-dark", language))
-      .replace("<pre", '<pre tabindex="0"')
-      .replace("<code>", `<code class="language-${block[1]}">`)
+    const language = (block[1] === "sh" ? "bash" : block[1]) as BundledLanguage
+    const rendered = (await highlight(code, "github-dark", language)).replace(
+      "<code>",
+      `<code class="language-${block[1]}">`
+    )
     html = html.replace(block[0], rendered)
   }
   return { source, html, headings }

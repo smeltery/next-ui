@@ -1,7 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Github } from "lucide-react"
+import { Icons } from "@/components/icons"
 import { Brand } from "./site/brand"
 const groups = [
   {
@@ -60,7 +60,9 @@ export function Footer() {
                     label === "GitHub repository" ? "icon-link" : undefined
                   }
                 >
-                  {label === "GitHub repository" && <Github size={15} />}{" "}
+                  {label === "GitHub repository" && (
+                    <Icons.github style={{ width: 15, height: 15 }} />
+                  )}{" "}
                   {label}
                 </Link>
               ))}
