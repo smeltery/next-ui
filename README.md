@@ -14,7 +14,7 @@ Small details. Better interfaces. Nine copy-paste React components with live pre
 [![Flox](https://img.shields.io/badge/dev_environment-Flox-222222)](.flox/env/manifest.toml)
 [![License](https://img.shields.io/badge/license-PolyForm_Shield-222222)](LICENSE)
 
-![Next UI — Small details. Better interfaces.](public/brand/og.png)
+![Next UI — Better React UI. Copy. Paste. Ship.](public/brand/og.png)
 
 Explore light, borders, motion, and backgrounds. Copy only what you need; the source stays in your application. The showcase includes searchable documentation, live demos, and component and usage tabs.
 

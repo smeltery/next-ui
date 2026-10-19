@@ -64,8 +64,8 @@ export default function BrandPage() {
           Small details. <em>Worth sharing.</em>
         </h2>
         <p className="brand-lede">
-          Our social preview pairs the wordmark with a one-bit dithered N. Use
-          the original PNG for link previews and project introductions.
+          Our social preview pairs the geometric mark with our product promise.
+          Use the original PNG for link previews and project introductions.
         </p>
         <figure className="brand-social">
           <img
@@ -73,7 +73,7 @@ export default function BrandPage() {
             width="1200"
             height="630"
             loading="lazy"
-            alt="Next UI social preview: Small details. Better interfaces. Beside a dithered N monogram."
+            alt="Next UI social preview: Better React UI. Copy. Paste. Ship. Beside the geometric N mark."
           />
         </figure>
       </section>
